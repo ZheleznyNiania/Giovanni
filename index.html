@@ -1,0 +1,2610 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мебель Джованни</title>
+<meta name="description" content="Мебель Джованни — мебель на заказ по индивидуальным размерам в Москве и МО. Своё производство, 15+ лет опыта, гарантия 3 года. Кухни, шкафы, гардеробные, прихожие, спальни, санузлы, детские.">
+<!-- Фавикон: айвори-фон, латунные створки, графитовые ручки.
+     SVG для браузеров, PNG 180×180 — для иконки на домашнем экране iOS. -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%23F7F4EF'/><rect x='6.5' y='5' width='19' height='22' rx='1' fill='%23B08D4F'/><rect x='15.4' y='5' width='1.2' height='22' fill='%23F7F4EF'/><rect x='12.4' y='13' width='1.7' height='6' rx='.85' fill='%231C1F23'/><rect x='17.9' y='13' width='1.7' height='6' rx='.85' fill='%231C1F23'/></svg>">
+<link rel="apple-touch-icon" href="Content/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ============================================================
+   МЕБЕЛЬ ДЖОВАННИ — лендинг
+   Дизайн-язык: мебельный чертёж + тёплые материалы.
+   Палитра: графит / латунь / айвори / орех.
+   Страница намеренно однотемная (фирменный стиль), все фоны
+   и цвета заданы явно, чтобы тёмная тема ОС её не ломала.
+   ============================================================ */
+
+:root{
+  color-scheme: light;
+
+  /* Цвет */
+  --graphite:#1C1F23;
+  --graphite-soft:#2A2E34;
+  --graphite-line:#3A3F46;
+  --brass:#B08D4F;
+  --brass-bright:#C9A461;
+  --brass-wash:#F0E7D6;
+  --walnut:#8A6A45;
+  --ivory:#F7F4EF;
+  --ivory-deep:#EDE7DD;
+  --paper:#FFFFFF;
+  --ink:#23262A;
+  --ink-soft:#5F636A;
+  --ink-mute:#8A8E95;
+  --line:#DCD5C9;
+  --line-soft:#E7E1D6;
+  --ok:#4A7A5C;
+
+  /* Тип */
+  --display:"Cormorant Garamond", "Times New Roman", serif;
+  --sans:"Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  /* Ритм */
+  --pad-x:clamp(20px, 5vw, 64px);
+  --sec-y:clamp(72px, 9vw, 128px);
+  --max:1240px;
+  --r:2px;
+  --r-lg:3px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ivory);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+h1,h2,h3,h4{margin:0;font-weight:500;text-wrap:balance}
+h1,h2{font-family:var(--display);line-height:1.06;letter-spacing:-.01em}
+h1{font-size:clamp(2.5rem,5.6vw,4.4rem)}
+h2{font-size:clamp(1.95rem,3.9vw,3rem)}
+h3{font-family:var(--sans);font-size:1.18rem;font-weight:600;line-height:1.35;letter-spacing:-.01em}
+p{margin:0}
+
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad-x)}
+.section{padding-block:var(--sec-y)}
+.section-dark{background:var(--graphite);color:#EDEAE4}
+.section-deep{background:var(--ivory-deep)}
+
+/* --- Чертёжные элементы: подпись-выноска и размерная линия --- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:.7rem;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--walnut);
+  margin:0 0 18px;
+}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;flex:none}
+.section-dark .eyebrow{color:var(--brass-bright)}
+
+.dim{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--ink-mute)}
+.dim::before,.dim::after{content:"";height:1px;background:var(--line);flex:1 1 auto;position:relative}
+.dim-tick{position:relative}
+.section-dark .dim{color:#9AA0A8}
+.section-dark .dim::before,.section-dark .dim::after{background:var(--graphite-line)}
+
+.sec-head{display:grid;gap:20px;margin-bottom:clamp(36px,5vw,64px)}
+.sec-head p.lead{max-width:62ch;color:var(--ink-soft);font-size:1.06rem}
+.section-dark .sec-head p.lead{color:#A9AEB5}
+@media(min-width:900px){
+  .sec-head{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:end;gap:48px}
+  .sec-head.stack{grid-template-columns:1fr}
+}
+
+/* --- Кнопки --- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 28px;border:1px solid transparent;border-radius:var(--r);
+  font-size:.94rem;font-weight:600;letter-spacing:.01em;cursor:pointer;
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+  text-align:center;
+}
+.btn-primary{background:var(--brass);color:#1A1206;border-color:var(--brass)}
+.btn-primary:hover{background:var(--brass-bright);border-color:var(--brass-bright)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink);background:rgba(28,31,35,.04)}
+.section-dark .btn-ghost{color:#EDEAE4;border-color:var(--graphite-line)}
+.section-dark .btn-ghost:hover{border-color:var(--brass);background:rgba(176,141,79,.1)}
+.btn:active{transform:translateY(1px)}
+.btn-lg{padding:18px 34px;font-size:1rem}
+.btn-block{width:100%}
+
+/* --- Шапка --- */
+.hdr{
+  position:sticky;top:0;z-index:60;background:rgba(247,244,239,.93);
+  backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid var(--line-soft);
+}
+.hdr-in{display:flex;align-items:center;gap:24px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:12px;flex:none}
+.logo-mark{width:clamp(38px,4vw,46px);height:clamp(38px,4vw,46px);flex:none}
+.logo-txt{display:grid;gap:2px;line-height:1.02}
+.logo-name{font-family:var(--display);font-size:clamp(1.5rem,2vw,1.8rem);font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.logo-sub{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap}
+@media(max-width:400px){.logo-sub{letter-spacing:.12em;font-size:.54rem}}
+.nav{display:none;gap:clamp(18px,1.7vw,26px);margin-inline:auto;font-size:.9rem;font-weight:500;flex:none}
+.nav a{color:var(--ink-soft);transition:color .16s ease;white-space:nowrap}
+.hdr .btn{white-space:nowrap}
+.nav a:hover{color:var(--ink)}
+.hdr-act{display:flex;align-items:center;gap:14px;margin-left:auto}
+.hdr-tel{display:none;font-weight:600;font-size:.98rem;white-space:nowrap}
+.hdr-tel small{display:block;font-family:var(--mono);font-size:.58rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.burger{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0 10px;background:none;border:1px solid var(--line);border-radius:var(--r);cursor:pointer}
+.burger span{display:block;height:1.5px;background:var(--ink);transition:transform .22s ease,opacity .18s ease}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+/* Логотип стал крупнее, поэтому полное меню включается позже —
+   иначе пункты налезают на телефон в шапке */
+@media(min-width:1240px){
+  .nav{display:flex}
+  .hdr-tel{display:block}
+  .burger{display:none}
+}
+/* До десктопа целевое действие живёт в нижней панели .mbar,
+   иначе кнопка выдавливает бургер за пределы экрана */
+@media(max-width:1239px){ .hdr-act .btn{display:none} }
+@media(max-width:1239px) and (min-width:1080px){ .hdr-tel{display:block} }
+.mnav{position:fixed;inset:0;z-index:59;background:var(--graphite);color:#EDEAE4;padding:96px var(--pad-x) 40px;display:grid;align-content:start;gap:4px;overflow-y:auto}
+.mnav a{padding:14px 0;border-bottom:1px solid var(--graphite-line);font-family:var(--display);font-size:1.7rem}
+.mnav .mnav-foot{margin-top:28px;display:grid;gap:14px}
+.mnav .mnav-tel{font-size:1.3rem;font-weight:600;font-family:var(--sans)}
+
+/* --- Первый экран --- */
+.hero{padding-block:clamp(44px,6vw,84px) clamp(56px,7vw,96px);position:relative;overflow:hidden}
+.hero-grid{display:grid;gap:clamp(36px,5vw,56px)}
+@media(min-width:980px){.hero-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);align-items:center;gap:clamp(40px,4.6vw,72px)}}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--walnut);margin-bottom:22px}
+.hero-badge b{color:var(--ink);font-weight:500}
+.hero h1{margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--walnut)}
+.hero-lead{max-width:52ch;color:var(--ink-soft);font-size:1.09rem;margin-bottom:26px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.hero-note{display:flex;align-items:flex-start;gap:9px;font-size:.86rem;color:var(--ink-mute);max-width:44ch}
+.hero-note svg{flex:none;margin-top:3px}
+.hero-art{position:relative}
+.hero-art figcaption{margin-top:14px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;padding-top:26px;border-top:1px solid var(--line-soft)}
+.hero-tags a{padding:7px 14px;border:1px solid var(--line);border-radius:99px;font-size:.83rem;color:var(--ink-soft);background:var(--paper);transition:border-color .16s ease,color .16s ease}
+.hero-tags a:hover{border-color:var(--brass);color:var(--ink)}
+
+/* --- Полоса доверия --- */
+.trust{border-block:1px solid var(--line-soft);background:var(--paper)}
+.trust-in{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-soft)}
+@media(min-width:760px){.trust-in{grid-template-columns:repeat(4,1fr)}}
+.trust-cell{background:var(--paper);padding:26px clamp(16px,2.4vw,28px);display:grid;gap:6px;align-content:start}
+.trust-num{font-family:var(--display);font-size:clamp(2rem,3.4vw,2.7rem);line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.trust-num span{font-size:.5em;color:var(--brass);vertical-align:super;margin-left:2px}
+.trust-cap{font-size:.85rem;color:var(--ink-soft);line-height:1.45}
+
+/* --- Карусель примеров работ ---------------------------------------
+   Прокрутка на scroll-snap: свайп на телефоне работает нативно,
+   стрелки и точки только доводят до ближайшего кадра.               */
+.car-sec{padding-block:clamp(56px,7vw,90px)}
+.car-head{display:flex;flex-wrap:wrap;gap:20px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:26px}
+.car-head h2{color:#F3F0EA}
+.car-ctl{display:flex;align-items:center;gap:12px}
+.car-count{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;color:#8A8E95;font-variant-numeric:tabular-nums}
+.car-count b{color:var(--brass-bright);font-weight:500}
+.car-btn{width:46px;height:46px;flex:none;border:1px solid var(--graphite-line);background:transparent;color:#EDEAE4;border-radius:99px;display:grid;place-items:center;cursor:pointer;transition:border-color .18s ease,color .18s ease,background .18s ease}
+.car-btn:hover{border-color:var(--brass);color:var(--brass-bright);background:rgba(176,141,79,.1)}
+.car-track{
+  display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:14px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{outline:2px solid var(--brass);outline-offset:5px}
+.car-slide{position:relative;margin:0;aspect-ratio:16/9;border-radius:3px;overflow:hidden;background:var(--graphite-soft);scroll-snap-align:start}
+.car-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.car-slide figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:clamp(18px,3vw,32px);display:grid;gap:6px;
+  background:linear-gradient(to top,rgba(16,18,21,.9),rgba(16,18,21,.5) 55%,rgba(16,18,21,0));
+}
+.car-slide figcaption b{font-family:var(--display);font-size:clamp(1.35rem,2.5vw,2rem);font-weight:500;color:#F7F4EF;line-height:1.15}
+.car-slide figcaption span{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;color:#CFC4AE}
+.car-dots{display:flex;gap:8px;justify-content:center;margin-top:22px}
+.car-dots button{width:28px;height:3px;padding:0;border:0;border-radius:2px;background:var(--graphite-line);cursor:pointer;transition:background .2s ease}
+.car-dots button[aria-selected="true"]{background:var(--brass)}
+.car-note{margin-top:18px;text-align:center;font-size:.82rem;color:#6C7178}
+/* На телефоне 16:9 слишком приплюснут — даём кадру больше высоты */
+@media(max-width:600px){
+  .car-slide{aspect-ratio:4/3}
+  .car-slide figcaption{padding:16px}
+  .car-slide figcaption span{font-size:.64rem;letter-spacing:.03em}
+  .car-ctl{width:100%;justify-content:flex-start}
+}
+
+/* --- Преимущества --- */
+.adv{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
+@media(min-width:700px){.adv{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.adv{grid-template-columns:repeat(3,1fr)}}
+.adv-item{background:var(--ivory);padding:clamp(24px,3vw,34px);display:grid;gap:12px;align-content:start}
+.adv-ico{width:34px;height:34px;color:var(--brass)}
+.adv-item p{color:var(--ink-soft);font-size:.94rem}
+
+/* --- Каталог --- */
+.cat{display:grid;gap:clamp(18px,2.2vw,26px)}
+@media(min-width:680px){.cat{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.cat{grid-template-columns:repeat(3,1fr)}}
+.cat-card{
+  display:grid;grid-template-rows:auto 1fr;background:var(--paper);
+  border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;
+  transition:border-color .2s ease,transform .2s ease;
+}
+.cat-card:hover{border-color:var(--brass);transform:translateY(-3px)}
+.cat-card.is-lead{grid-column:1/-1}
+@media(min-width:1040px){.cat-card.is-lead{grid-column:span 2;grid-template-rows:1fr;grid-template-columns:1.15fr 1fr}}
+.cat-art{background:var(--ivory-deep);position:relative;overflow:hidden}
+.cat-art svg{width:100%;height:auto;display:block}
+.cat-body{padding:clamp(20px,2.4vw,28px);display:grid;gap:12px;align-content:start}
+.cat-card.is-lead .cat-body{align-content:center}
+.cat-title{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.cat-title h3{font-size:1.28rem}
+.cat-card.is-lead .cat-title h3{font-family:var(--display);font-size:2rem;font-weight:500}
+.cat-price{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--walnut);white-space:nowrap}
+.cat-body p{color:var(--ink-soft);font-size:.93rem}
+.cat-specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.cat-specs span{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:var(--ink-mute);border:1px solid var(--line-soft);border-radius:99px;padding:4px 10px}
+.cat-link{display:inline-flex;align-items:center;gap:8px;margin-top:4px;font-weight:600;font-size:.9rem;color:var(--ink);background:none;border:0;padding:0;cursor:pointer;transition:gap .18s ease,color .18s ease}
+.cat-link:hover{gap:13px;color:var(--brass)}
+
+/* --- Производство --- */
+.prod-grid{display:grid;gap:clamp(32px,4vw,60px);align-items:center}
+@media(min-width:960px){.prod-grid{grid-template-columns:1fr 1fr}}
+.prod-list{display:grid;gap:1px;background:var(--graphite-line);border-block:1px solid var(--graphite-line);margin-top:28px}
+.prod-list div{background:var(--graphite);padding:18px 0;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.prod-list b{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.1em;color:var(--brass);padding-top:4px}
+.prod-list p{color:#A9AEB5;font-size:.94rem}
+.prod-list strong{display:block;color:#EDEAE4;font-weight:600;font-size:1rem;margin-bottom:3px}
+
+/* --- Этапы --- */
+.steps{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
+@media(min-width:640px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--ivory);padding:clamp(24px,3vw,32px);display:grid;gap:10px;align-content:start;position:relative}
+.step-n{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--brass)}
+.step p{color:var(--ink-soft);font-size:.93rem}
+.step-when{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink-mute);border-top:1px solid var(--line-soft);padding-top:10px;margin-top:4px}
+
+/* --- Портфолио --- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.filters button{
+  padding:9px 17px;border:1px solid var(--line);background:var(--paper);border-radius:99px;
+  font-size:.86rem;font-weight:500;color:var(--ink-soft);cursor:pointer;transition:all .16s ease;
+}
+.filters button:hover{border-color:var(--ink-soft)}
+.filters button[aria-pressed="true"]{background:var(--graphite);border-color:var(--graphite);color:#F3F0EA}
+.works{display:grid;gap:clamp(18px,2.2vw,24px)}
+@media(min-width:680px){.works{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.works{grid-template-columns:repeat(3,1fr)}}
+
+/* Планировки + живые фото: схемы слева, карусель реальных объектов справа */
+.works-layout{display:grid;gap:clamp(32px,4vw,48px)}
+@media(min-width:1160px){.works-layout{grid-template-columns:1fr 340px;align-items:start}}
+.works-main{min-width:0}
+@media(min-width:1040px){.works-main .works{grid-template-columns:repeat(2,1fr)}}
+
+.wgal{background:var(--graphite);border-radius:var(--r-lg);padding:clamp(20px,2.4vw,26px);display:flex;flex-direction:column;gap:16px}
+@media(min-width:1160px){.wgal{position:sticky;top:100px}}
+.wgal-eyebrow{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-bright)}
+.wgal-h{font-family:var(--display);font-size:1.28rem;font-weight:500;color:#F3F0EA;margin-top:4px}
+.wgal-panel{display:flex;flex-direction:column;gap:16px}
+.wgal-panel[hidden]{display:none}
+.wgal-track{
+  display:grid;grid-auto-flow:column;grid-auto-columns:100%;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;border-radius:4px;
+}
+.wgal-track::-webkit-scrollbar{display:none}
+.wgal-track:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+.wgal-slide{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:var(--graphite-soft);scroll-snap-align:start}
+.wgal-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wgal-slide figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:16px 18px;display:grid;gap:4px;
+  background:linear-gradient(to top,rgba(16,18,21,.92),rgba(16,18,21,.55) 60%,rgba(16,18,21,0));
+}
+.wgal-slide figcaption b{font-family:var(--display);font-size:1.05rem;font-weight:500;color:#F7F4EF;line-height:1.25}
+.wgal-slide figcaption span{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:#CFC4AE}
+.wgal-ctl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:2px}
+.wgal-btn{width:38px;height:38px;flex:none;border:1px solid var(--graphite-line);background:transparent;color:#EDEAE4;border-radius:99px;display:grid;place-items:center;cursor:pointer;transition:border-color .18s ease,color .18s ease,background .18s ease}
+.wgal-btn:hover{border-color:var(--brass);color:var(--brass-bright);background:rgba(176,141,79,.1)}
+.wgal-count{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:#8A8E95;font-variant-numeric:tabular-nums}
+.wgal-count b{color:var(--brass-bright);font-weight:500}
+.wgal-dots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.wgal-dots button{width:18px;height:3px;padding:0;border:0;border-radius:2px;background:var(--graphite-line);cursor:pointer;transition:background .2s ease}
+.wgal-dots button[aria-selected="true"]{background:var(--brass)}
+@media(max-width:600px){.wgal-slide{aspect-ratio:4/3}}
+.work{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.work[hidden]{display:none}
+.work-art{background:var(--ivory-deep)}
+.work-body{padding:20px 22px 22px;display:grid;gap:10px;align-content:start}
+.work-body h3{font-size:1.06rem}
+.work-meta{display:grid;gap:7px;font-size:.85rem}
+.work-meta div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;border-bottom:1px dotted var(--line);padding-bottom:6px}
+.work-meta dt,.work-meta b{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);font-weight:400}
+.work-meta span{color:var(--ink-soft);text-align:right}
+.work-cta{margin-top:4px;font-weight:600;font-size:.88rem;color:var(--brass);background:none;border:0;padding:0;text-align:left;cursor:pointer}
+.work-cta:hover{color:var(--walnut)}
+
+/* --- Материалы --- */
+.mat-grid{display:grid;gap:clamp(28px,4vw,56px)}
+@media(min-width:960px){.mat-grid{grid-template-columns:1.05fr 1fr;align-items:start}}
+.swatches{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:520px){.swatches{grid-template-columns:repeat(4,1fr)}}
+.swatch{display:grid;gap:9px}
+.swatch-chip{aspect-ratio:1;border-radius:var(--r);border:1px solid rgba(0,0,0,.12);position:relative;overflow:hidden}
+.swatch b{font-size:.9rem;font-weight:600}
+.swatch small{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--ink-mute);margin-top:2px}
+.brands{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.brands span{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);border-radius:var(--r);padding:9px 15px;background:var(--paper)}
+
+/* --- Квиз --- */
+.quiz{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:0 24px 60px -40px rgba(28,31,35,.5);overflow:hidden;
+}
+.quiz-head{padding:clamp(22px,3vw,30px) clamp(22px,3vw,34px);border-bottom:1px solid var(--line-soft);display:grid;gap:14px}
+.quiz-bar{height:3px;background:var(--line-soft);border-radius:99px;overflow:hidden}
+.quiz-bar i{display:block;height:100%;background:var(--brass);width:25%;transition:width .35s cubic-bezier(.4,0,.2,1)}
+.quiz-step-lbl{display:flex;justify-content:space-between;gap:14px;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute)}
+.quiz-body{padding:clamp(24px,3vw,34px)}
+.quiz-q{font-family:var(--display);font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:6px}
+.quiz-hint{color:var(--ink-soft);font-size:.92rem;margin-bottom:22px}
+.opts{display:grid;gap:10px}
+@media(min-width:620px){.opts.cols-2{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:620px){.opts.cols-4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.opts.cols-4{grid-template-columns:repeat(4,1fr)}}
+.opt{
+  display:flex;align-items:center;gap:12px;padding:15px 17px;background:var(--ivory);
+  border:1px solid var(--line-soft);border-radius:var(--r);cursor:pointer;text-align:left;
+  font-size:.95rem;font-weight:500;transition:border-color .16s ease,background .16s ease;
+}
+.opt:hover{border-color:var(--brass);background:var(--brass-wash)}
+.opt[aria-pressed="true"]{border-color:var(--brass);background:var(--brass-wash);box-shadow:inset 0 0 0 1px var(--brass)}
+.opt small{display:block;font-weight:400;font-size:.78rem;color:var(--ink-mute);margin-top:2px}
+.opt-ico{width:26px;height:26px;flex:none;color:var(--walnut)}
+.quiz-nav{display:flex;justify-content:space-between;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line-soft)}
+.quiz-result{display:grid;gap:8px;text-align:center;padding:8px 0 20px}
+.quiz-price{font-family:var(--display);font-size:clamp(2.1rem,4.4vw,3.1rem);line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums}
+.quiz-price small{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.quiz-sum{font-size:.88rem;color:var(--ink-soft)}
+.quiz-form{display:grid;gap:12px;margin-top:6px}
+@media(min-width:620px){.quiz-form{grid-template-columns:1fr 1fr}}
+
+/* --- Поля --- */
+.field{display:grid;gap:7px}
+.field label{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute)}
+.field input,.field textarea,.field select{
+  padding:14px 15px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  font-size:.97rem;transition:border-color .16s ease;width:100%;
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--brass);outline:none}
+.field input[aria-invalid="true"]{border-color:#B4442F}
+.field .err{font-size:.78rem;color:#B4442F;min-height:0}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.79rem;color:var(--ink-mute);line-height:1.5}
+.consent input{margin-top:3px;accent-color:var(--brass);flex:none;width:16px;height:16px}
+.consent a{text-decoration:underline;text-underline-offset:2px}
+.form-span{grid-column:1/-1}
+
+/* --- Отзывы --- */
+.revs{display:grid;gap:clamp(18px,2.2vw,24px)}
+@media(min-width:760px){.revs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.revs{grid-template-columns:repeat(3,1fr)}}
+.rev{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(22px,2.6vw,28px);display:grid;gap:14px;align-content:start}
+.rev-stars{display:flex;gap:3px;color:var(--brass)}
+.rev p{font-size:.95rem;color:var(--ink-soft);line-height:1.6}
+.rev-who{display:grid;gap:2px;border-top:1px solid var(--line-soft);padding-top:14px}
+.rev-who b{font-size:.93rem;font-weight:600}
+.rev-who small{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink-mute)}
+
+/* --- Гарантия --- */
+.warr{display:grid;gap:clamp(28px,4vw,56px);align-items:center}
+@media(min-width:940px){.warr{grid-template-columns:.85fr 1.15fr}}
+.warr-badge{border:1px solid var(--graphite-line);border-radius:var(--r-lg);padding:clamp(28px,4vw,40px);text-align:center;background:var(--graphite-soft)}
+.warr-num{font-family:var(--display);font-size:clamp(4rem,9vw,6.4rem);line-height:.9;color:var(--brass)}
+.warr-badge b{display:block;font-size:1.1rem;margin-top:8px;color:#EDEAE4}
+.warr-badge small{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#8A8E95;margin-top:12px}
+.warr-list{display:grid;gap:14px}
+.warr-list div{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.warr-list svg{color:var(--brass);flex:none;margin-top:2px}
+.warr-list p{color:#A9AEB5;font-size:.94rem}
+.warr-list strong{display:block;color:#EDEAE4;font-weight:600;margin-bottom:2px}
+
+/* --- FAQ --- */
+.faq{display:grid;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;
+  font-size:1.04rem;font-weight:600;line-height:1.4;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:6px;top:50%;width:13px;height:13px;
+  border-right:1.5px solid var(--brass);border-bottom:1.5px solid var(--brass);
+  transform:translateY(-70%) rotate(45deg);transition:transform .22s ease;
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq .faq-a{padding:0 44px 24px 0;color:var(--ink-soft);font-size:.96rem;max-width:78ch}
+
+/* --- Оффер --- */
+.offer{background:var(--graphite);color:#EDEAE4;border-radius:var(--r-lg);padding:clamp(32px,5vw,64px);display:grid;gap:clamp(26px,3vw,48px);align-items:center;position:relative;overflow:hidden}
+@media(min-width:900px){.offer{grid-template-columns:1.1fr .9fr}}
+.offer h2{color:#F3F0EA}
+.offer p{color:#A9AEB5;max-width:52ch;margin-top:14px}
+.offer-list{display:grid;gap:10px;margin-top:22px}
+.offer-list div{display:flex;gap:11px;align-items:flex-start;font-size:.95rem}
+.offer-list svg{color:var(--brass);flex:none;margin-top:3px}
+.offer-form{background:var(--graphite-soft);border:1px solid var(--graphite-line);border-radius:var(--r);padding:clamp(22px,3vw,30px);display:grid;gap:12px}
+.offer-form .field label{color:#8A8E95}
+.offer-form .field input{background:var(--graphite);border-color:var(--graphite-line);color:#EDEAE4}
+.offer-form .field input::placeholder{color:#6C7178}
+.offer-form .consent{color:#8A8E95}
+
+/* --- Контакты --- */
+.cont{display:grid;gap:clamp(28px,4vw,56px)}
+@media(min-width:940px){.cont{grid-template-columns:1fr 1fr}}
+.cont-rows{display:grid;gap:1px;background:var(--line-soft);border-block:1px solid var(--line-soft);margin-top:26px}
+.cont-rows a,.cont-rows div{background:var(--ivory);padding:18px 0;display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:baseline}
+.cont-rows b{font-family:var(--mono);font-size:.68rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute)}
+.cont-rows span{font-size:1.02rem;font-weight:500}
+.cont-rows a:hover span{color:var(--brass)}
+.msgr{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.msgr a{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);font-size:.9rem;font-weight:600;transition:border-color .16s ease}
+.msgr a:hover{border-color:var(--brass)}
+.map{background:var(--ivory-deep);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(22px,3vw,30px);display:grid;gap:16px;align-content:start}
+.map-note{font-size:.9rem;color:var(--ink-soft)}
+
+/* --- Подвал --- */
+.ftr{background:var(--graphite);color:#9AA0A8;padding-block:clamp(48px,6vw,72px) 32px;font-size:.89rem}
+.ftr-top{display:grid;gap:32px;padding-bottom:36px;border-bottom:1px solid var(--graphite-line)}
+@media(min-width:820px){.ftr-top{grid-template-columns:1.4fr 1fr 1fr}}
+.ftr h4{font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#EDEAE4;margin-bottom:14px}
+.ftr-links{display:grid;gap:9px}
+.ftr-links a:hover{color:var(--brass-bright)}
+.ftr .logo-name{color:#F3F0EA}
+.ftr-about{max-width:40ch;margin-top:14px;line-height:1.6}
+.ftr-bot{display:grid;gap:12px;padding-top:24px;font-size:.8rem;color:#6C7178}
+@media(min-width:820px){.ftr-bot{grid-template-columns:1fr auto;align-items:center}}
+.ftr-bot a{text-decoration:underline;text-underline-offset:2px}
+
+/* --- Мобильная панель действий --- */
+.mbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:55;display:grid;grid-template-columns:auto 1fr;gap:10px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(247,244,239,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+}
+.mbar-tel{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);color:var(--ink)}
+@media(min-width:1080px){.mbar{display:none}}
+@media(max-width:1079px){body{padding-bottom:80px}}
+
+/* --- Модальное окно --- */
+.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:20px;background:rgba(28,31,35,.62);backdrop-filter:blur(3px)}
+.modal-card{background:var(--ivory);border-radius:var(--r-lg);width:min(520px,100%);max-height:90vh;overflow-y:auto;padding:clamp(26px,4vw,38px);position:relative}
+.modal-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:1px solid var(--line);background:var(--paper);border-radius:var(--r);cursor:pointer;display:grid;place-items:center}
+.modal-card h3{font-family:var(--display);font-size:1.75rem;font-weight:500;margin-bottom:8px}
+.modal-card>p{color:var(--ink-soft);font-size:.94rem;margin-bottom:20px}
+.modal-form{display:grid;gap:13px}
+.done{display:grid;gap:12px;justify-items:center;text-align:center;padding:16px 0}
+.done-ico{width:56px;height:56px;border-radius:99px;display:grid;place-items:center;background:var(--brass-wash);color:var(--walnut)}
+
+/* --- Слоты под фотографии ------------------------------------------
+   Схема-иллюстрация остаётся запасным вариантом: если файла фото нет,
+   <img> удаляется скриптом и виден чертёж. Как только фото положены
+   в папку Content/, они перекрывают схему.                                */
+.art{position:relative;overflow:hidden;background:var(--ivory-deep)}
+.art>svg,.cat-art>svg{display:block;width:100%;height:auto}
+.art>img,.cat-art>img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .45s ease;
+}
+.art>img.is-ok,.cat-art>img.is-ok{opacity:1}
+.cat-card.is-lead .cat-art{min-height:100%}
+
+/* --- Прочее --- */
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none !important}
+.fade-up{animation:fadeUp .7s cubic-bezier(.2,.7,.3,1) both}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}.d3{animation-delay:.18s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+</style>
+</head>
+<body>
+
+<!-- Общие градиенты и штриховки для всех иллюстраций -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <linearGradient id="gWood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A07C50"/><stop offset="1" stop-color="#7A5C3B"/>
+    </linearGradient>
+    <linearGradient id="gWoodL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C39C68"/><stop offset="1" stop-color="#9A7647"/>
+    </linearGradient>
+    <linearGradient id="gLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBF9F5"/><stop offset="1" stop-color="#E8E1D5"/>
+    </linearGradient>
+    <linearGradient id="gDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#343A41"/><stop offset="1" stop-color="#23272C"/>
+    </linearGradient>
+    <linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#DCE3E2"/><stop offset=".5" stop-color="#F2F4F2"/><stop offset="1" stop-color="#CBD4D3"/>
+    </linearGradient>
+    <linearGradient id="gRoom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4EFE6"/><stop offset="1" stop-color="#E6DFD2"/>
+    </linearGradient>
+    <linearGradient id="gStone" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3B4046"/><stop offset="1" stop-color="#2C3136"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- ================= ШАПКА ================= -->
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#top" aria-label="Мебель Джованни — на главную">
+      <svg class="logo-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="32" height="32" stroke="#1C1F23" stroke-width="1.2"/>
+        <rect x="6" y="6" width="10" height="22" fill="#B08D4F"/>
+        <rect x="19" y="6" width="9" height="10" stroke="#1C1F23" stroke-width="1.2"/>
+        <rect x="19" y="19" width="9" height="9" stroke="#1C1F23" stroke-width="1.2"/>
+      </svg>
+      <span class="logo-txt">
+        <span class="logo-name">Мебель Джованни</span>
+        <span class="logo-sub">Мебель на заказ</span>
+      </span>
+    </a>
+
+    <!-- В шапке пять пунктов: полный список остался в бургер-меню и подвале -->
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#catalog">Каталог</a>
+      <a href="#steps">Как работаем</a>
+      <a href="#works">Проекты</a>
+      <a href="#calc">Расчёт</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="hdr-act">
+      <a class="hdr-tel" href="tel:+79261857871">8(926)-185-78-71<small>Ежедневно, с 10:00 до 22:00</small></a>
+      <button class="btn btn-primary" data-modal="Заявка на замер">Бесплатный замер</button>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mnav" id="mnav" aria-label="Мобильная навигация" hidden>
+  <a href="#catalog">Каталог</a>
+  <a href="#steps">Как работаем</a>
+  <a href="#works">Проекты</a>
+  <a href="#showcase">Примеры работ</a>
+  <a href="#calc">Расчёт стоимости</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#faq">Вопросы</a>
+  <a href="#contacts">Контакты</a>
+  <div class="mnav-foot">
+    <a class="mnav-tel" href="tel:+79261857871">8(926)-185-78-71</a>
+    <button class="btn btn-primary btn-block" data-modal="Заявка на замер">Записаться на замер</button>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ================= ПЕРВЫЙ ЭКРАН ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="fade-up">
+      <p class="hero-badge"><b>15 лет</b> на рынке мебели · Москва и МО</p>
+      <h1>Мебель, собранная <em>по вашим</em> миллиметрам</h1>
+      <p class="hero-lead">Проектируем и производим кухни, шкафы и гардеробные под конкретное помещение — с нишами, скосами и коробами, которые не обойдёт готовая мебель. Собственное производство и контроль на каждом этапе.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg" data-modal="Заявка на замер">Записаться на замер</button>
+        <a class="btn btn-ghost btn-lg" href="#calc">Рассчитать стоимость</a>
+      </div>
+      <p class="hero-note">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6.5 8.5 7.8 10l3-3.6" stroke="#B08D4F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="6.4" stroke="#B08D4F" stroke-width="1.2"/></svg>
+        Замер, дизайн-проект и смета — бесплатно и без обязательств заключать договор.
+      </p>
+    </div>
+
+    <figure class="hero-art fade-up d1" style="margin:0">
+      <div class="art">
+        <img src="Content/hero.jpg" alt="Кухня-гостиная по индивидуальному проекту: остров с барной стойкой, тёмные фасады и латунная фурнитура" width="1600" height="1100" decoding="async" fetchpriority="high">
+          <svg viewBox="0 0 620 420" role="img" aria-label="Чертёж-визуализация кухни: нижние тумбы, верхние шкафы, вытяжка, остров и высокий пенал">
+        <rect width="620" height="420" fill="url(#gRoom)"/>
+        <!-- стена и пол -->
+        <rect x="0" y="330" width="620" height="90" fill="#DED5C6"/>
+        <line x1="0" y1="330" x2="620" y2="330" stroke="#C6BBA8" stroke-width="1"/>
+        <!-- фартук -->
+        <rect x="60" y="176" width="330" height="66" fill="#E3DACB"/>
+        <!-- верхние шкафы левые -->
+        <rect x="60" y="96" width="104" height="80" fill="url(#gLight)" stroke="#C9BFAC"/>
+        <line x1="112" y1="96" x2="112" y2="176" stroke="#C9BFAC"/>
+        <rect x="86" y="166" width="52" height="3" rx="1.5" fill="#B08D4F"/>
+        <!-- вытяжка -->
+        <path d="M186 96h108l-16 46h-76z" fill="url(#gDark)"/>
+        <rect x="202" y="142" width="76" height="10" fill="#1C1F23"/>
+        <!-- верхние шкафы правые -->
+        <rect x="316" y="96" width="74" height="80" fill="url(#gLight)" stroke="#C9BFAC"/>
+        <rect x="332" y="166" width="42" height="3" rx="1.5" fill="#B08D4F"/>
+        <!-- столешница -->
+        <rect x="52" y="242" width="346" height="12" fill="url(#gStone)"/>
+        <!-- нижние тумбы -->
+        <rect x="60" y="254" width="330" height="76" fill="url(#gWood)"/>
+        <line x1="170" y1="254" x2="170" y2="330" stroke="#6A4F32"/>
+        <line x1="280" y1="254" x2="280" y2="330" stroke="#6A4F32"/>
+        <rect x="86" y="272" width="58" height="3" rx="1.5" fill="#D8C9AE"/>
+        <rect x="196" y="272" width="58" height="3" rx="1.5" fill="#D8C9AE"/>
+        <rect x="306" y="272" width="58" height="3" rx="1.5" fill="#D8C9AE"/>
+        <!-- варочная -->
+        <rect x="196" y="236" width="84" height="6" fill="#22262B"/>
+        <!-- пенал -->
+        <rect x="410" y="96" width="150" height="234" fill="url(#gLight)" stroke="#C9BFAC"/>
+        <line x1="410" y1="200" x2="560" y2="200" stroke="#C9BFAC"/>
+        <rect x="470" y="140" width="3" height="46" rx="1.5" fill="#B08D4F"/>
+        <rect x="470" y="216" width="3" height="46" rx="1.5" fill="#B08D4F"/>
+        <!-- остров -->
+        <rect x="150" y="352" width="250" height="10" fill="url(#gStone)"/>
+        <rect x="158" y="362" width="234" height="46" fill="url(#gWoodL)"/>
+        <line x1="275" y1="362" x2="275" y2="408" stroke="#7A5C3B"/>
+        <rect x="196" y="378" width="46" height="3" rx="1.5" fill="#F0E4CB"/>
+        <rect x="308" y="378" width="46" height="3" rx="1.5" fill="#F0E4CB"/>
+        <!-- подвесы -->
+        <line x1="215" y1="96" x2="215" y2="300" stroke="#C6BBA8" stroke-width="1" stroke-dasharray="3 4"/>
+        <line x1="335" y1="96" x2="335" y2="300" stroke="#C6BBA8" stroke-width="1" stroke-dasharray="3 4"/>
+        <circle cx="215" cy="306" r="13" fill="#B08D4F"/>
+        <circle cx="335" cy="306" r="13" fill="#B08D4F"/>
+        <!-- размерная линия -->
+        <g stroke="#8A8E95" stroke-width="1">
+          <line x1="52" y1="62" x2="560" y2="62"/>
+          <line x1="52" y1="54" x2="52" y2="70"/>
+          <line x1="560" y1="54" x2="560" y2="70"/>
+        </g>
+        <rect x="252" y="50" width="108" height="24" fill="#F4EFE6"/>
+        <text x="306" y="67" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#5F636A">3 280 мм</text>
+        <g stroke="#8A8E95" stroke-width="1">
+          <line x1="586" y1="96" x2="586" y2="330"/>
+          <line x1="578" y1="96" x2="594" y2="96"/>
+          <line x1="578" y1="330" x2="594" y2="330"/>
+        </g>
+        <text x="586" y="219" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#5F636A" transform="rotate(-90 586 219)" style="paint-order:stroke;stroke:#EDE6DA;stroke-width:6px">2 340 мм</text>
+      </svg>
+      </div>
+      <figcaption class="dim"><span>Кухня по индивидуальным размерам</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-tags fade-up d2">
+      <a href="#catalog">Кухни</a>
+      <a href="#catalog">Шкафы</a>
+      <a href="#catalog">Гардеробные</a>
+      <a href="#catalog">Прихожие</a>
+      <a href="#catalog">Спальни</a>
+      <a href="#catalog">Санузлы</a>
+      <a href="#catalog">Детские</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ПОЛОСА ДОВЕРИЯ ================= -->
+<section class="trust" aria-label="Ключевые факты о компании">
+  <div class="wrap">
+    <div class="trust-in">
+      <div class="trust-cell">
+        <span class="trust-num" data-count="15">15<span>+</span></span>
+        <span class="trust-cap">лет на рынке мебели на заказ</span>
+      </div>
+      <div class="trust-cell">
+        <span class="trust-num" data-count="7">7</span>
+        <span class="trust-cap">направлений мебели — от кухни до детской</span>
+      </div>
+      <div class="trust-cell">
+        <span class="trust-num" data-count="3">3</span>
+        <span class="trust-cap">года гарантии на мебель, фурнитуру и монтаж — по договору</span>
+      </div>
+      <div class="trust-cell">
+        <span class="trust-num">Своё</span>
+        <span class="trust-cap">производство — без посредников и перекладывания сроков</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= КАРУСЕЛЬ ПРИМЕРОВ РАБОТ =================
+     ЗАМЕНИТЬ: сейчас в слайдах стоковые интерьеры-ориентиры.
+     После съёмки объектов поставьте сюда собственные проекты —
+     тогда блок можно будет честно назвать «Наши работы».        -->
+<section class="section-dark car-sec" id="showcase" aria-labelledby="showcase-h">
+  <div class="wrap">
+    <div class="car-head">
+      <div>
+        <p class="eyebrow">Примеры работ</p>
+        <h2 id="showcase-h">Как это выглядит вживую</h2>
+      </div>
+      <div class="car-ctl">
+        <span class="car-count"><b id="car-cur">01</b> / 06</span>
+        <button class="car-btn" id="car-prev" aria-label="Предыдущий пример">
+          <svg width="17" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M17 6H1M7 1 1 6l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="car-btn" id="car-next" aria-label="Следующий пример">
+          <svg width="17" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M11 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="car-track" id="car-track" tabindex="0" role="group" aria-label="Карусель примеров работ, листается стрелками">
+      <figure class="car-slide">
+        <img src="Content/slide-1.jpg" alt="Кухня с островом, светлые фасады и тёмная каменная столешница" width="1400" height="790" decoding="async">
+        <figcaption><b>Кухня с островом</b><span>МДФ-эмаль · кварцевая столешница · Blum с доводчиками</span></figcaption>
+      </figure>
+      <figure class="car-slide">
+        <img src="Content/slide-2.jpg" alt="Кухня с фасадами из тёмного дерева и подсветкой рабочей зоны" width="1400" height="790" loading="lazy" decoding="async">
+        <figcaption><b>Кухня в тёмном дереве</b><span>Шпон · подсветка рабочей зоны · встроенная техника</span></figcaption>
+      </figure>
+      <figure class="car-slide">
+        <img src="Content/slide-3.jpg" alt="Гардеробная комната со штангами и полками в шпоне ореха" width="1400" height="790" loading="lazy" decoding="async">
+        <figcaption><b>Гардеробная в шпоне ореха</b><span>Штанги · полки · ящики с доводчиком</span></figcaption>
+      </figure>
+      <figure class="car-slide">
+        <img src="Content/slide-4.jpg" alt="Встроенный шкаф с полками, ящиками и зеркалом в полный рост" width="1400" height="790" loading="lazy" decoding="async">
+        <figcaption><b>Встроенный шкаф с зеркалом</b><span>Полки · ящики · зеркало в полный рост</span></figcaption>
+      </figure>
+      <figure class="car-slide">
+        <img src="Content/slide-5.jpg" alt="Спальня с деревянной стеновой панелью в изголовье и встроенным шкафом" width="1400" height="790" loading="lazy" decoding="async">
+        <figcaption><b>Спальня со стеновой панелью</b><span>Дерево · встроенный шкаф · скрытая подсветка</span></figcaption>
+      </figure>
+      <figure class="car-slide">
+        <img src="Content/slide-6.jpg" alt="Тумба под раковину из светлого дерева с латунной фурнитурой" width="1400" height="790" loading="lazy" decoding="async">
+        <figcaption><b>Мебель для санузла</b><span>Влагостойкий МДФ · латунная фурнитура</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="car-dots" id="car-dots" role="tablist" aria-label="Выбор примера"></div>
+    <p class="car-note">Листайте свайпом или стрелками. Похожий проект посчитаем на бесплатном замере.</p>
+  </div>
+</section>
+
+<!-- ================= ПРЕИМУЩЕСТВА ================= -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Почему нас выбирают</p>
+        <h2>Пятнадцать лет мы отвечаем за каждый миллиметр</h2>
+      </div>
+      <p class="lead">За это время в мебели изменилось многое — материалы, фурнитура, техника. Не изменилось одно: мебель либо встаёт в помещение идеально, либо не встаёт совсем. Мы работаем ради первого.</p>
+    </div>
+
+    <div class="adv">
+      <div class="adv-item">
+        <svg class="adv-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 27h26M6 27V13l10-7 10 7v14"/><path d="M12 27v-8h8v8"/></svg>
+        <h3>Собственное производство</h3>
+        <p>Раскрой, кромление, присадка и сборка — на своих станках. Мы не перекладываем сроки на подрядчика и не объясняем задержки «поставщиком».</p>
+      </div>
+      <div class="adv-item">
+        <svg class="adv-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 24 24 4l4 4L8 28H4z"/><path d="M19 9l4 4M6 20l6 6"/></svg>
+        <h3>Проект под ваше помещение</h3>
+        <p>Ниши, скосы, вентиляционные короба, потолки 3,2 м, кривые стены — всё это учитывается на замере, а не «подрезается по месту» при монтаже.</p>
+      </div>
+      <div class="adv-item">
+        <svg class="adv-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4" y="7" width="24" height="18" rx="1"/><path d="M4 13h24M12 13v12"/></svg>
+        <h3>Материалы с паспортом</h3>
+        <p>ЛДСП и МДФ класса эмиссии E0.5, эмаль в 5 слоёв, натуральный шпон. Кромка ABS 2 мм по периметру — торцы не разбухают от пара и мытья.</p>
+      </div>
+      <div class="adv-item">
+        <svg class="adv-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg>
+        <h3>Фурнитура, которая ходит годами</h3>
+        <p>Петли и направляющие Blum и Hettich с доводчиками, подъёмники на фасады. Ресурс — десятки тысяч циклов, замена по гарантии за наш счёт.</p>
+      </div>
+      <div class="adv-item">
+        <svg class="adv-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 4h14l5 5v19H7z"/><path d="M20 4v6h6M12 18h8M12 23h5"/></svg>
+        <h3>Смета без «дозаказов»</h3>
+        <p>Цена фиксируется в договоре вместе со спецификацией до последней ручки. Если мы ошиблись в расчёте — это наша ошибка, а не ваша доплата.</p>
+      </div>
+      <div class="adv-item">
+        <svg class="adv-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M16 3l11 5v8c0 7-4.6 11.4-11 13-6.4-1.6-11-6-11-13V8z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></svg>
+        <h3>Монтаж своей бригадой</h3>
+        <p>Мебель собирают те, кто её производил, — не сторонние сборщики. Выравнивание по уровню, подключение техники, уборка после работы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= КАТАЛОГ ================= -->
+<section class="section section-deep" id="catalog">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Каталог</p>
+        <h2>Семь направлений — один подрядчик на всю квартиру</h2>
+      </div>
+      <p class="lead">Можно заказать одну кухню, а можно обставить квартиру целиком: единый стиль, одна смета, один договор и один ответственный за сроки. Цены указаны за базовую комплектацию — точную считаем после замера.</p>
+    </div>
+
+    <div class="cat">
+      <!-- Кухни -->
+      <article class="cat-card is-lead">
+        <div class="cat-art">
+          <img src="Content/cat-kitchen.jpg" alt="Кухня на заказ: остров с подсветкой, барные стулья, встроенная техника" width="1200" height="900" loading="lazy" decoding="async">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Кухня: нижние тумбы, верхние шкафы, вытяжка и высокий пенал">
+            <rect width="400" height="300" fill="url(#gRoom)"/>
+            <rect x="0" y="252" width="400" height="48" fill="#DED5C6"/>
+            <rect x="30" y="112" width="240" height="42" fill="#E3DACB"/>
+            <rect x="30" y="52" width="76" height="60" fill="url(#gLight)" stroke="#C9BFAC"/>
+            <line x1="68" y1="52" x2="68" y2="112" stroke="#C9BFAC"/>
+            <rect x="50" y="104" width="36" height="3" rx="1.5" fill="#B08D4F"/>
+            <path d="M130 52h74l-11 32h-52z" fill="url(#gDark)"/>
+            <rect x="141" y="84" width="52" height="8" fill="#1C1F23"/>
+            <rect x="228" y="52" width="42" height="60" fill="url(#gLight)" stroke="#C9BFAC"/>
+            <rect x="240" y="104" width="20" height="3" rx="1.5" fill="#B08D4F"/>
+            <rect x="24" y="154" width="252" height="9" fill="url(#gStone)"/>
+            <rect x="30" y="163" width="240" height="89" fill="url(#gWood)"/>
+            <line x1="110" y1="163" x2="110" y2="252" stroke="#6A4F32"/>
+            <line x1="190" y1="163" x2="190" y2="252" stroke="#6A4F32"/>
+            <rect x="50" y="180" width="40" height="3" rx="1.5" fill="#D8C9AE"/>
+            <rect x="130" y="180" width="40" height="3" rx="1.5" fill="#D8C9AE"/>
+            <rect x="210" y="180" width="40" height="3" rx="1.5" fill="#D8C9AE"/>
+            <rect x="130" y="148" width="60" height="6" fill="#22262B"/>
+            <rect x="292" y="52" width="82" height="200" fill="url(#gLight)" stroke="#C9BFAC"/>
+            <line x1="292" y1="150" x2="374" y2="150" stroke="#C9BFAC"/>
+            <rect x="326" y="88" width="3" height="34" rx="1.5" fill="#B08D4F"/>
+            <rect x="326" y="176" width="3" height="34" rx="1.5" fill="#B08D4F"/>
+            <line x1="152" y1="52" x2="152" y2="200" stroke="#C6BBA8" stroke-dasharray="3 4"/>
+            <circle cx="152" cy="206" r="10" fill="#B08D4F"/>
+            <g stroke="#A79C89" stroke-width="1">
+              <line x1="24" y1="272" x2="276" y2="272"/><line x1="24" y1="266" x2="24" y2="278"/><line x1="276" y1="266" x2="276" y2="278"/>
+            </g>
+            <rect x="118" y="262" width="64" height="20" fill="#DED5C6"/>
+            <text x="150" y="277" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#5F636A">2 520</text>
+          </svg>
+        </div>
+        <div class="cat-body">
+          <div class="cat-title"><h3>Кухни</h3><span class="cat-price">от 42 000 ₽ / пог. м</span></div>
+          <p>Главное направление компании. Прямые, угловые и П-образные кухни с островом, антресолями до потолка и встроенной техникой. Считаем эргономику рабочего треугольника, а не просто расставляем шкафы: мойка, плита и холодильник встают так, чтобы готовить было удобно именно вам.</p>
+          <div class="cat-specs"><span>МДФ-эмаль · шпон · ЛДСП</span><span>Столешница: кварц, HPL, массив</span><span>Blum с доводчиками</span></div>
+          <button class="cat-link" data-modal="Заявка: кухня">Обсудить кухню
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Шкафы -->
+      <article class="cat-card">
+        <div class="cat-art">
+          <img src="Content/cat-wardrobe.jpg" alt="Шкаф-купе с рифлёными фасадами оттенка капучино и латунными ручками во всю высоту дверей" width="1200" height="900" loading="lazy" decoding="async">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Шкаф-купе с тремя дверями, одна из которых зеркальная">
+            <rect width="400" height="300" fill="url(#gRoom)"/>
+            <rect x="0" y="262" width="400" height="38" fill="#DED5C6"/>
+            <rect x="44" y="30" width="312" height="12" fill="url(#gWood)"/>
+            <rect x="48" y="42" width="304" height="220" fill="#E6DED0" stroke="#C9BFAC"/>
+            <rect x="54" y="48" width="96" height="208" fill="url(#gWoodL)"/>
+            <rect x="152" y="48" width="96" height="208" fill="url(#gGlass)"/>
+            <path d="M152 200 248 96v40l-96 104z" fill="#FFFFFF" opacity=".45"/>
+            <rect x="250" y="48" width="96" height="208" fill="url(#gWoodL)"/>
+            <rect x="140" y="120" width="4" height="64" rx="2" fill="#B08D4F"/>
+            <rect x="238" y="120" width="4" height="64" rx="2" fill="#B08D4F"/>
+            <rect x="336" y="120" width="4" height="64" rx="2" fill="#B08D4F"/>
+            <line x1="48" y1="256" x2="352" y2="256" stroke="#B0A490"/>
+            <g stroke="#A79C89" stroke-width="1">
+              <line x1="372" y1="30" x2="372" y2="262"/><line x1="366" y1="30" x2="378" y2="30"/><line x1="366" y1="262" x2="378" y2="262"/>
+            </g>
+            <text x="372" y="150" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#5F636A" transform="rotate(-90 372 150)" style="paint-order:stroke;stroke:#EFE9DE;stroke-width:6px">2 700</text>
+          </svg>
+        </div>
+        <div class="cat-body">
+          <div class="cat-title"><h3>Шкафы</h3><span class="cat-price">от 31 000 ₽ / пог. м</span></div>
+          <p>Купе и распашные, встроенные в нишу или корпусные. До потолка — чтобы не собирать пыль на антресолях.</p>
+          <div class="cat-specs"><span>Высота до 3 200 мм</span><span>Зеркало, лакобель, шпон</span><span>Доводчики на дверях</span></div>
+          <button class="cat-link" data-modal="Заявка: шкаф">Обсудить шкаф
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Гардеробные -->
+      <article class="cat-card">
+        <div class="cat-art">
+          <img src="Content/cat-dressing.jpg" alt="Гардеробная: встроенный шкаф и туалетный столик у окна" width="1200" height="900" loading="lazy" decoding="async">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Гардеробная: открытая система со штангами, полками и выдвижными ящиками">
+            <rect width="400" height="300" fill="url(#gRoom)"/>
+            <rect x="0" y="262" width="400" height="38" fill="#DED5C6"/>
+            <rect x="30" y="34" width="340" height="228" fill="#EFE8DB"/>
+            <rect x="30" y="34" width="8" height="228" fill="url(#gWood)"/>
+            <rect x="176" y="34" width="8" height="228" fill="url(#gWood)"/>
+            <rect x="362" y="34" width="8" height="228" fill="url(#gWood)"/>
+            <rect x="38" y="76" width="138" height="5" fill="url(#gWood)"/>
+            <rect x="60" y="81" width="4" height="16" fill="#8A8E95"/><rect x="46" y="97" width="32" height="52" rx="2" fill="#C9BFAC"/>
+            <rect x="92" y="81" width="4" height="16" fill="#8A8E95"/><rect x="78" y="97" width="32" height="60" rx="2" fill="#B9AF9C"/>
+            <rect x="124" y="81" width="4" height="16" fill="#8A8E95"/><rect x="110" y="97" width="32" height="48" rx="2" fill="#CFC6B3"/>
+            <rect x="38" y="172" width="138" height="5" fill="url(#gWood)"/>
+            <rect x="38" y="177" width="138" height="40" fill="url(#gWoodL)"/>
+            <rect x="86" y="195" width="42" height="3" rx="1.5" fill="#F0E4CB"/>
+            <rect x="38" y="217" width="138" height="5" fill="url(#gWood)"/>
+            <rect x="38" y="222" width="138" height="40" fill="url(#gWoodL)"/>
+            <rect x="86" y="240" width="42" height="3" rx="1.5" fill="#F0E4CB"/>
+            <rect x="184" y="70" width="178" height="5" fill="url(#gWood)"/>
+            <rect x="196" y="44" width="26" height="26" fill="#C9BFAC"/><rect x="228" y="48" width="26" height="22" fill="#D6CDBA"/>
+            <rect x="184" y="118" width="178" height="5" fill="url(#gWood)"/>
+            <rect x="196" y="88" width="24" height="30" fill="#BFB5A2"/><rect x="226" y="94" width="24" height="24" fill="#CFC6B3"/><rect x="256" y="90" width="24" height="28" fill="#C4BAA7"/>
+            <rect x="184" y="166" width="178" height="5" fill="url(#gWood)"/>
+            <rect x="196" y="140" width="30" height="26" rx="2" fill="#D6CDBA"/><rect x="232" y="136" width="30" height="30" rx="2" fill="#C9BFAC"/>
+            <rect x="184" y="200" width="178" height="4" fill="#C9BFAC" transform="skewY(-7)"/>
+            <rect x="184" y="236" width="178" height="4" fill="#C9BFAC" transform="skewY(-7)"/>
+            <line x1="30" y1="262" x2="370" y2="262" stroke="#B0A490"/>
+          </svg>
+        </div>
+        <div class="cat-body">
+          <div class="cat-title"><h3>Гардеробные</h3><span class="cat-price">от 46 000 ₽ / пог. м</span></div>
+          <p>Считаем систему под ваш гардероб: сколько метров штанги, сколько ящиков под трикотаж, где встанет обувь.</p>
+          <div class="cat-specs"><span>Штанги, сетки, брючницы</span><span>Ящики с доводчиком</span><span>Подсветка полок</span></div>
+          <button class="cat-link" data-modal="Заявка: гардеробная">Обсудить гардеробную
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Прихожие -->
+      <article class="cat-card">
+        <div class="cat-art">
+          <img src="Content/cat-hall.jpg" alt="Прихожая: шкафы по бокам мягкой банкетки" width="1200" height="900" loading="lazy" decoding="async">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Прихожая: высокий шкаф, вешалка с одеждой, зеркало и скамья">
+            <rect width="400" height="300" fill="url(#gRoom)"/>
+            <rect x="0" y="262" width="400" height="38" fill="#DED5C6"/>
+            <rect x="34" y="40" width="92" height="222" fill="url(#gLight)" stroke="#C9BFAC"/>
+            <line x1="80" y1="40" x2="80" y2="262" stroke="#C9BFAC"/>
+            <rect x="70" y="130" width="3" height="44" rx="1.5" fill="#B08D4F"/>
+            <rect x="87" y="130" width="3" height="44" rx="1.5" fill="#B08D4F"/>
+            <rect x="140" y="40" width="130" height="10" fill="url(#gWood)"/>
+            <rect x="140" y="86" width="130" height="6" fill="url(#gWood)"/>
+            <circle cx="164" cy="98" r="4" fill="#B08D4F"/><circle cx="205" cy="98" r="4" fill="#B08D4F"/><circle cx="246" cy="98" r="4" fill="#B08D4F"/>
+            <path d="M156 102h18l8 78h-34z" fill="#B9AF9C"/>
+            <path d="M197 102h18l7 66h-32z" fill="#C9BFAC"/>
+            <path d="M238 102h18l8 84h-34z" fill="#A99F8C"/>
+            <rect x="140" y="196" width="130" height="12" fill="url(#gWoodL)"/>
+            <rect x="146" y="208" width="118" height="34" fill="url(#gWood)"/>
+            <rect x="186" y="222" width="38" height="3" rx="1.5" fill="#D8C9AE"/>
+            <rect x="146" y="242" width="118" height="20" fill="#E6DED0" stroke="#C9BFAC"/>
+            <rect x="288" y="52" width="76" height="150" rx="2" fill="url(#gGlass)" stroke="#C9BFAC"/>
+            <path d="M288 170 364 84v28l-76 86z" fill="#FFFFFF" opacity=".4"/>
+            <rect x="288" y="216" width="76" height="10" fill="url(#gWood)"/>
+            <line x1="34" y1="262" x2="370" y2="262" stroke="#B0A490"/>
+          </svg>
+        </div>
+        <div class="cat-body">
+          <div class="cat-title"><h3>Прихожие</h3><span class="cat-price">от 54 000 ₽ / комплект</span></div>
+          <p>Самое сложное помещение в квартире: мало места и много вещей. Проектируем так, чтобы верхняя одежда, обувь и мелочи имели своё место.</p>
+          <div class="cat-specs"><span>Шкаф + скамья + зеркало</span><span>Открытая и закрытая зоны</span><span>Отсек для сушки обуви</span></div>
+          <button class="cat-link" data-modal="Заявка: прихожая">Обсудить прихожую
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Спальни -->
+      <article class="cat-card">
+        <div class="cat-art">
+          <img src="Content/cat-bedroom.jpg" alt="Шкаф-купе с рифлёными фасадами оттенка капучино и латунными ручками во всю высоту дверей" width="1200" height="900" loading="lazy" decoding="async">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Спальня: кровать с мягким изголовьем, тумбы и подвесные светильники">
+            <rect width="400" height="300" fill="url(#gRoom)"/>
+            <rect x="0" y="252" width="400" height="48" fill="#DED5C6"/>
+            <rect x="108" y="66" width="184" height="104" rx="3" fill="#C3B8A4"/>
+            <g stroke="#AFA491" stroke-width="1">
+              <line x1="154" y1="66" x2="154" y2="170"/><line x1="200" y1="66" x2="200" y2="170"/><line x1="246" y1="66" x2="246" y2="170"/>
+              <line x1="108" y1="101" x2="292" y2="101"/><line x1="108" y1="136" x2="292" y2="136"/>
+            </g>
+            <rect x="96" y="170" width="208" height="16" fill="url(#gWood)"/>
+            <rect x="104" y="186" width="192" height="34" rx="3" fill="#EFEAE0"/>
+            <path d="M128 186h64v34h-64z" fill="#E3DACB"/>
+            <rect x="104" y="220" width="192" height="12" fill="url(#gWoodL)"/>
+            <rect x="112" y="232" width="10" height="20" fill="url(#gWood)"/><rect x="278" y="232" width="10" height="20" fill="url(#gWood)"/>
+            <rect x="30" y="196" width="60" height="56" fill="url(#gWoodL)"/>
+            <rect x="46" y="214" width="28" height="3" rx="1.5" fill="#F0E4CB"/>
+            <rect x="46" y="236" width="28" height="3" rx="1.5" fill="#F0E4CB"/>
+            <rect x="310" y="196" width="60" height="56" fill="url(#gWoodL)"/>
+            <rect x="326" y="214" width="28" height="3" rx="1.5" fill="#F0E4CB"/>
+            <rect x="326" y="236" width="28" height="3" rx="1.5" fill="#F0E4CB"/>
+            <line x1="60" y1="40" x2="60" y2="140" stroke="#C6BBA8" stroke-dasharray="3 4"/>
+            <path d="M48 140h24l-6 22H54z" fill="#B08D4F"/>
+            <line x1="340" y1="40" x2="340" y2="140" stroke="#C6BBA8" stroke-dasharray="3 4"/>
+            <path d="M328 140h24l-6 22h-12z" fill="#B08D4F"/>
+          </svg>
+        </div>
+        <div class="cat-body">
+          <div class="cat-title"><h3>Спальни</h3><span class="cat-price">от 96 000 ₽ / комплект</span></div>
+          <p>Кровать с мягким изголовьем, тумбы, комод и шкаф в одном материале и одном оттенке — комплект, а не набор случайной мебели.</p>
+          <div class="cat-specs"><span>Изголовье: ткань, экокожа</span><span>Подъёмный механизм</span><span>Кровать по вашему матрасу</span></div>
+          <button class="cat-link" data-modal="Заявка: спальня">Обсудить спальню
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Санузлы -->
+      <article class="cat-card">
+        <div class="cat-art">
+          <img src="Content/cat-bath.jpg" alt="Мебель для санузла: подвесная тумба с двумя раковинами, зеркало и мраморная отделка" width="1200" height="900" loading="lazy" decoding="async">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Мебель для санузла: тумба с раковиной, зеркало с подсветкой и пенал">
+            <rect width="400" height="300" fill="url(#gRoom)"/>
+            <rect x="0" y="258" width="400" height="42" fill="#DED5C6"/>
+            <rect x="30" y="86" width="220" height="60" fill="#E9E3D7"/>
+            <g stroke="#DCD4C4" stroke-width="1">
+              <line x1="85" y1="86" x2="85" y2="146"/><line x1="140" y1="86" x2="140" y2="146"/><line x1="195" y1="86" x2="195" y2="146"/><line x1="30" y1="116" x2="250" y2="116"/>
+            </g>
+            <rect x="52" y="40" width="176" height="86" rx="2" fill="url(#gGlass)" stroke="#C9BFAC"/>
+            <path d="M52 118 228 52v22L52 126z" fill="#FFFFFF" opacity=".45"/>
+            <rect x="52" y="126" width="176" height="4" rx="2" fill="#F0E4CB"/>
+            <rect x="44" y="164" width="192" height="10" fill="url(#gStone)"/>
+            <rect x="112" y="146" width="56" height="18" rx="3" fill="#F4F1EA" stroke="#C9BFAC"/>
+            <rect x="136" y="128" width="4" height="20" fill="#B08D4F"/><rect x="132" y="126" width="20" height="4" rx="2" fill="#B08D4F"/>
+            <rect x="50" y="174" width="180" height="62" fill="url(#gWood)"/>
+            <line x1="140" y1="174" x2="140" y2="236" stroke="#6A4F32"/>
+            <rect x="76" y="192" width="38" height="3" rx="1.5" fill="#D8C9AE"/>
+            <rect x="166" y="192" width="38" height="3" rx="1.5" fill="#D8C9AE"/>
+            <rect x="60" y="236" width="8" height="22" fill="#8A8E95"/><rect x="212" y="236" width="8" height="22" fill="#8A8E95"/>
+            <rect x="286" y="40" width="82" height="218" fill="url(#gLight)" stroke="#C9BFAC"/>
+            <line x1="286" y1="150" x2="368" y2="150" stroke="#C9BFAC"/>
+            <rect x="322" y="94" width="3" height="36" rx="1.5" fill="#B08D4F"/>
+            <rect x="322" y="176" width="3" height="36" rx="1.5" fill="#B08D4F"/>
+          </svg>
+        </div>
+        <div class="cat-body">
+          <div class="cat-title"><h3>Санузлы</h3><span class="cat-price">от 48 000 ₽ / комплект</span></div>
+          <p>Влагостойкие материалы и фурнитура с антикоррозийным покрытием. Тумба точно под вашу раковину и разводку труб.</p>
+          <div class="cat-specs"><span>Влагостойкий МДФ, эмаль</span><span>Зеркало с подсветкой</span><span>Обход труб и инсталляции</span></div>
+          <button class="cat-link" data-modal="Заявка: санузел">Обсудить санузел
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Детские -->
+      <article class="cat-card">
+        <div class="cat-art">
+          <img src="Content/cat-kids.jpg" alt="Детская: стеллаж с игрушками на фоне звёздных обоев" width="1200" height="900" loading="lazy" decoding="async">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Детская: кровать-чердак с лестницей, рабочий стол и полки">
+            <rect width="400" height="300" fill="url(#gRoom)"/>
+            <rect x="0" y="258" width="400" height="42" fill="#DED5C6"/>
+            <rect x="40" y="60" width="200" height="14" fill="url(#gWoodL)"/>
+            <rect x="46" y="46" width="188" height="16" rx="3" fill="#EFEAE0"/>
+            <rect x="52" y="34" width="52" height="14" rx="4" fill="#C7B79C"/>
+            <rect x="40" y="74" width="12" height="184" fill="url(#gWood)"/>
+            <rect x="228" y="74" width="12" height="184" fill="url(#gWood)"/>
+            <rect x="40" y="20" width="12" height="42" fill="url(#gWood)"/>
+            <rect x="228" y="20" width="12" height="42" fill="url(#gWood)"/>
+            <rect x="52" y="26" width="176" height="5" fill="url(#gWood)"/>
+            <g fill="url(#gWood)">
+              <rect x="248" y="74" width="10" height="184"/><rect x="292" y="74" width="10" height="184"/>
+              <rect x="248" y="96" width="54" height="7"/><rect x="248" y="140" width="54" height="7"/><rect x="248" y="184" width="54" height="7"/>
+            </g>
+            <rect x="258" y="66" width="34" height="30" rx="3" fill="#B08D4F"/>
+            <rect x="256" y="112" width="38" height="28" rx="3" fill="#C3B8A4"/>
+            <rect x="258" y="156" width="34" height="28" rx="3" fill="#8A6A45"/>
+            <rect x="60" y="176" width="160" height="10" fill="url(#gWoodL)"/>
+            <rect x="68" y="186" width="60" height="72" fill="url(#gWood)"/>
+            <rect x="82" y="202" width="32" height="3" rx="1.5" fill="#D8C9AE"/>
+            <rect x="82" y="226" width="32" height="3" rx="1.5" fill="#D8C9AE"/>
+            <rect x="150" y="150" width="52" height="26" rx="2" fill="#EFEAE0" stroke="#C9BFAC"/>
+            <rect x="164" y="176" width="24" height="6" fill="#C9BFAC"/>
+            <rect x="322" y="40" width="46" height="218" fill="url(#gLight)" stroke="#C9BFAC"/>
+            <rect x="342" y="130" width="3" height="34" rx="1.5" fill="#B08D4F"/>
+            <line x1="322" y1="146" x2="368" y2="146" stroke="#C9BFAC"/>
+          </svg>
+        </div>
+        <div class="cat-body">
+          <div class="cat-title"><h3>Детские</h3><span class="cat-price">от 88 000 ₽ / комплект</span></div>
+          <p>Кровати-чердаки, рабочие места и системы хранения, которые растут вместе с ребёнком. Скруглённые кромки и материалы класса E0.5.</p>
+          <div class="cat-specs"><span>Скруглённые углы</span><span>Стол по росту ребёнка</span><span>Безопасные подъёмники</span></div>
+          <button class="cat-link" data-modal="Заявка: детская">Обсудить детскую
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ЭТАПЫ ================= -->
+<section class="section" id="steps">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Как мы работаем</p>
+        <h2>Шесть шагов от звонка до подписанного акта</h2>
+      </div>
+      <p class="lead">Порядок один и тот же для кухни за 200 000 ₽ и для меблировки квартиры целиком. Вы всегда знаете, какой этап идёт сейчас и что будет дальше.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-n">Шаг 01</span>
+        <h3>Заявка и консультация</h3>
+        <p>Уточняем задачу, помещение и бюджет по телефону или в мессенджере. Если запрос не наш — скажем честно и не будем тратить ваше время.</p>
+        <span class="step-when">В день обращения</span>
+      </div>
+      <div class="step">
+        <span class="step-n">Шаг 02</span>
+        <h3>Замер на объекте</h3>
+        <p>Инженер снимает размеры, проверяет геометрию стен, находит коммуникации и розетки. Бесплатно, даже если вы потом не заключите договор.</p>
+        <span class="step-when">1–2 дня после заявки</span>
+      </div>
+      <div class="step">
+        <span class="step-n">Шаг 03</span>
+        <h3>Дизайн-проект и смета</h3>
+        <p>Показываем визуализацию, планировку наполнения и подробную спецификацию: материалы, фурнитура, техника — с ценой по каждой позиции.</p>
+        <span class="step-when">2–4 дня</span>
+      </div>
+      <div class="step">
+        <span class="step-n">Шаг 04</span>
+        <h3>Договор и предоплата</h3>
+        <p>В договоре фиксируются цена, комплектация, сроки производства и монтажа, а также ответственность сторон за их нарушение.</p>
+        <span class="step-when">1 день</span>
+      </div>
+      <div class="step">
+        <span class="step-n">Шаг 05</span>
+        <h3>Производство</h3>
+        <p>Раскрой, кромление, присадка, сборка корпусов и контроль качества в цехе. По ходу присылаем фотоотчёт — процесс не «чёрный ящик».</p>
+        <span class="step-when">10-30 рабочих дней</span>
+      </div>
+      <div class="step">
+        <span class="step-n">Шаг 06</span>
+        <h3>Доставка и монтаж</h3>
+        <p>Собираем своей бригадой, выравниваем по уровню, подключаем встроенную технику, убираем за собой. Подписываем акт — с него начинается гарантия.</p>
+        <span class="step-when">1–2 дня</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ПОРТФОЛИО ================= -->
+<section class="section section-deep" id="works">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Проекты</p>
+        <h2>Планировки реализованных проектов</h2>
+      </div>
+      <p class="lead">Показываем не только фасады, но и планы: именно в них видно, как мебель обходит короб, вписывается в нишу и оставляет проходы. Справа — живые фото уже сданных объектов.</p>
+    </div>
+
+    <div class="works-layout">
+    <div class="works-main">
+
+    <div class="filters" role="group" aria-label="Фильтр проектов по категориям">
+      <button data-filter="all" aria-pressed="true">Все проекты</button>
+      <button data-filter="kitchen" aria-pressed="false">Кухни</button>
+      <button data-filter="wardrobe" aria-pressed="false">Шкафы</button>
+      <button data-filter="dressing" aria-pressed="false">Гардеробные</button>
+      <button data-filter="bedroom" aria-pressed="false">Спальни</button>
+      <button data-filter="kids" aria-pressed="false">Детские</button>
+      <button data-filter="bath" aria-pressed="false">Санузлы</button>
+    </div>
+
+    <div class="works" id="works-grid">
+      <article class="work" data-cat="kitchen">
+        <div class="work-art">
+          <svg viewBox="0 0 400 250" role="img" aria-label="План П-образной кухни с островом, 12,4 квадратных метра">
+            <rect width="400" height="250" fill="#F1EBE0"/>
+            <rect x="36" y="34" width="328" height="176" fill="#FBF8F2" stroke="#2A2E34" stroke-width="5"/>
+            <rect x="38" y="36" width="324" height="30" fill="url(#gWoodL)"/>
+            <rect x="38" y="36" width="80" height="30" fill="url(#gStone)"/>
+            <rect x="38" y="66" width="30" height="110" fill="url(#gWoodL)"/>
+            <rect x="332" y="66" width="30" height="92" fill="url(#gWoodL)"/>
+            <rect x="140" y="118" width="120" height="52" rx="2" fill="url(#gWood)"/>
+            <rect x="146" y="124" width="108" height="40" fill="url(#gStone)"/>
+            <circle cx="200" cy="144" r="9" fill="none" stroke="#B08D4F" stroke-width="2"/>
+            <path d="M362 210v-44a44 44 0 0 1-44 44z" fill="none" stroke="#8A8E95" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <g stroke="#8A8E95" stroke-width="1">
+              <line x1="36" y1="228" x2="364" y2="228"/><line x1="36" y1="222" x2="36" y2="234"/><line x1="364" y1="222" x2="364" y2="234"/>
+            </g>
+            <rect x="168" y="219" width="64" height="18" fill="#F1EBE0"/>
+            <text x="200" y="233" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5F636A">4 100</text>
+            <text x="52" y="100" font-family="IBM Plex Mono, monospace" font-size="10" fill="#8A8E95" transform="rotate(-90 52 100)">3 020</text>
+          </svg>
+        </div>
+        <div class="work-body">
+          <h3>Кухня с островом, П-образная</h3>
+          <div class="work-meta">
+            <div><b>Площадь</b><span>12,4 м²</span></div>
+            <div><b>Фасады</b><span>МДФ, эмаль матовая</span></div>
+            <div><b>Столешница</b><span>Кварцевый агломерат</span></div>
+            <div><b>Срок</b><span>26 рабочих дней</span></div>
+          </div>
+          <button class="work-cta" data-modal="Хочу такой же проект: кухня с островом">Хочу такой же →</button>
+        </div>
+      </article>
+
+      <article class="work" data-cat="dressing">
+        <div class="work-art">
+          <svg viewBox="0 0 400 250" role="img" aria-label="План гардеробной комнаты 6,2 квадратных метра с П-образной системой хранения">
+            <rect width="400" height="250" fill="#F1EBE0"/>
+            <rect x="60" y="34" width="280" height="176" fill="#FBF8F2" stroke="#2A2E34" stroke-width="5"/>
+            <rect x="62" y="36" width="276" height="26" fill="url(#gWoodL)"/>
+            <rect x="62" y="62" width="26" height="146" fill="url(#gWoodL)"/>
+            <rect x="312" y="62" width="26" height="146" fill="url(#gWoodL)"/>
+            <rect x="62" y="36" width="276" height="6" fill="#B08D4F"/>
+            <rect x="62" y="62" width="6" height="146" fill="#B08D4F"/>
+            <rect x="332" y="62" width="6" height="146" fill="#B08D4F"/>
+            <rect x="150" y="110" width="100" height="60" rx="2" fill="url(#gWood)"/>
+            <rect x="158" y="118" width="84" height="44" fill="#EFEAE0"/>
+            <path d="M340 210v-46a46 46 0 0 1-46 46z" fill="none" stroke="#8A8E95" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <g stroke="#8A8E95" stroke-width="1">
+              <line x1="60" y1="228" x2="340" y2="228"/><line x1="60" y1="222" x2="60" y2="234"/><line x1="340" y1="222" x2="340" y2="234"/>
+            </g>
+            <rect x="168" y="219" width="64" height="18" fill="#F1EBE0"/>
+            <text x="200" y="233" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5F636A">2 850</text>
+          </svg>
+        </div>
+        <div class="work-body">
+          <h3>Гардеробная комната, П-образная</h3>
+          <div class="work-meta">
+            <div><b>Площадь</b><span>6,2 м²</span></div>
+            <div><b>Материал</b><span>Шпон ореха, матовый лак</span></div>
+            <div><b>Наполнение</b><span>Штанги, 14 ящиков, брючница</span></div>
+            <div><b>Срок</b><span>24 рабочих дня</span></div>
+          </div>
+          <button class="work-cta" data-modal="Хочу такой же проект: гардеробная">Хочу такой же →</button>
+        </div>
+      </article>
+
+      <article class="work" data-cat="wardrobe">
+        <div class="work-art">
+          <svg viewBox="0 0 400 250" role="img" aria-label="План встроенного шкафа-купе во всю стену длиной 3600 мм">
+            <rect width="400" height="250" fill="#F1EBE0"/>
+            <rect x="36" y="60" width="328" height="150" fill="#FBF8F2" stroke="#2A2E34" stroke-width="5"/>
+            <rect x="38" y="62" width="324" height="46" fill="url(#gWoodL)"/>
+            <rect x="38" y="100" width="324" height="8" fill="url(#gStone)"/>
+            <rect x="38" y="62" width="108" height="46" fill="#D6CDBA"/>
+            <rect x="146" y="62" width="108" height="46" fill="url(#gGlass)"/>
+            <rect x="254" y="62" width="108" height="46" fill="#D6CDBA"/>
+            <g stroke="#B08D4F" stroke-width="2">
+              <line x1="146" y1="66" x2="146" y2="104"/><line x1="254" y1="66" x2="254" y2="104"/>
+            </g>
+            <path d="M120 108h60M220 108h60" stroke="#8A8E95" stroke-width="1" stroke-dasharray="4 3"/>
+            <path d="M150 118l-14 10 14 10M250 118l14 10-14 10" fill="none" stroke="#8A8E95" stroke-width="1.2"/>
+            <g stroke="#8A8E95" stroke-width="1">
+              <line x1="38" y1="228" x2="362" y2="228"/><line x1="38" y1="222" x2="38" y2="234"/><line x1="362" y1="222" x2="362" y2="234"/>
+            </g>
+            <rect x="168" y="219" width="64" height="18" fill="#F1EBE0"/>
+            <text x="200" y="233" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5F636A">3 600</text>
+            <text x="200" y="180" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8A8E95">глубина 650 мм</text>
+          </svg>
+        </div>
+        <div class="work-body">
+          <h3>Шкаф-купе во всю стену</h3>
+          <div class="work-meta">
+            <div><b>Длина</b><span>3 600 мм, до потолка</span></div>
+            <div><b>Двери</b><span>3 купе, центральная — зеркало</span></div>
+            <div><b>Особенность</b><span>Обход вентиляционного короба</span></div>
+            <div><b>Срок</b><span>19 рабочих дней</span></div>
+          </div>
+          <button class="work-cta" data-modal="Хочу такой же проект: шкаф-купе">Хочу такой же →</button>
+        </div>
+      </article>
+
+      <article class="work" data-cat="kids">
+        <div class="work-art">
+          <svg viewBox="0 0 400 250" role="img" aria-label="План детской комнаты для двоих детей с кроватью-чердаком и двумя рабочими местами">
+            <rect width="400" height="250" fill="#F1EBE0"/>
+            <rect x="46" y="34" width="308" height="176" fill="#FBF8F2" stroke="#2A2E34" stroke-width="5"/>
+            <rect x="48" y="36" width="120" height="70" rx="2" fill="url(#gWood)"/>
+            <rect x="56" y="44" width="104" height="54" rx="3" fill="#EFEAE0"/>
+            <rect x="48" y="112" width="120" height="34" fill="url(#gWoodL)"/>
+            <rect x="232" y="36" width="120" height="70" rx="2" fill="url(#gWood)"/>
+            <rect x="240" y="44" width="104" height="54" rx="3" fill="#EFEAE0"/>
+            <rect x="232" y="112" width="120" height="34" fill="url(#gWoodL)"/>
+            <rect x="48" y="170" width="90" height="38" fill="#C3B8A4"/>
+            <rect x="262" y="170" width="90" height="38" fill="#C3B8A4"/>
+            <rect x="170" y="150" width="60" height="58" rx="2" fill="#B08D4F"/>
+            <g stroke="#8A8E95" stroke-width="1">
+              <line x1="46" y1="228" x2="354" y2="228"/><line x1="46" y1="222" x2="46" y2="234"/><line x1="354" y1="222" x2="354" y2="234"/>
+            </g>
+            <rect x="168" y="219" width="64" height="18" fill="#F1EBE0"/>
+            <text x="200" y="233" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5F636A">3 850</text>
+          </svg>
+        </div>
+        <div class="work-body">
+          <h3>Детская для двоих</h3>
+          <div class="work-meta">
+            <div><b>Площадь</b><span>14,8 м²</span></div>
+            <div><b>Состав</b><span>2 чердака, 2 стола, хранение</span></div>
+            <div><b>Материал</b><span>ЛДСП E0.5, кромка 2 мм</span></div>
+            <div><b>Срок</b><span>22 рабочих дня</span></div>
+          </div>
+          <button class="work-cta" data-modal="Хочу такой же проект: детская">Хочу такой же →</button>
+        </div>
+      </article>
+
+      <article class="work" data-cat="bedroom">
+        <div class="work-art">
+          <svg viewBox="0 0 400 250" role="img" aria-label="План спальни с кроватью, тумбами и встроенным шкафом">
+            <rect width="400" height="250" fill="#F1EBE0"/>
+            <rect x="46" y="34" width="308" height="176" fill="#FBF8F2" stroke="#2A2E34" stroke-width="5"/>
+            <rect x="140" y="36" width="130" height="16" fill="url(#gWood)"/>
+            <rect x="144" y="52" width="122" height="118" rx="3" fill="#EFEAE0" stroke="#C9BFAC"/>
+            <rect x="152" y="60" width="46" height="26" rx="4" fill="#D6CDBA"/>
+            <rect x="212" y="60" width="46" height="26" rx="4" fill="#D6CDBA"/>
+            <rect x="100" y="36" width="36" height="36" fill="url(#gWoodL)"/>
+            <rect x="274" y="36" width="36" height="36" fill="url(#gWoodL)"/>
+            <rect x="48" y="36" width="44" height="172" fill="url(#gWoodL)"/>
+            <rect x="48" y="36" width="44" height="6" fill="#B08D4F"/>
+            <line x1="92" y1="80" x2="92" y2="164" stroke="#B08D4F" stroke-width="2"/>
+            <path d="M352 210v-44a44 44 0 0 1-44 44z" fill="none" stroke="#8A8E95" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <g stroke="#8A8E95" stroke-width="1">
+              <line x1="46" y1="228" x2="354" y2="228"/><line x1="46" y1="222" x2="46" y2="234"/><line x1="354" y1="222" x2="354" y2="234"/>
+            </g>
+            <rect x="168" y="219" width="64" height="18" fill="#F1EBE0"/>
+            <text x="200" y="233" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5F636A">3 850</text>
+          </svg>
+        </div>
+        <div class="work-body">
+          <h3>Спальня со встроенным шкафом</h3>
+          <div class="work-meta">
+            <div><b>Состав</b><span>Кровать, 2 тумбы, шкаф 1,8 м</span></div>
+            <div><b>Изголовье</b><span>Рогожка, стежка каре</span></div>
+            <div><b>Особенность</b><span>Подъёмный механизм, бельевой ящик</span></div>
+            <div><b>Срок</b><span>28 рабочих дней</span></div>
+          </div>
+          <button class="work-cta" data-modal="Хочу такой же проект: спальня">Хочу такой же →</button>
+        </div>
+      </article>
+
+      <article class="work" data-cat="bath">
+        <div class="work-art">
+          <svg viewBox="0 0 400 250" role="img" aria-label="План санузла с тумбой под раковину, пеналом и инсталляцией">
+            <rect width="400" height="250" fill="#F1EBE0"/>
+            <rect x="96" y="34" width="208" height="176" fill="#FBF8F2" stroke="#2A2E34" stroke-width="5"/>
+            <rect x="98" y="36" width="120" height="44" fill="url(#gWood)"/>
+            <rect x="122" y="42" width="60" height="32" rx="14" fill="#F4F1EA" stroke="#C9BFAC"/>
+            <rect x="222" y="36" width="80" height="44" fill="url(#gLight)" stroke="#C9BFAC"/>
+            <rect x="98" y="100" width="34" height="106" fill="url(#gWoodL)"/>
+            <rect x="240" y="96" width="62" height="40" fill="#D6CDBA"/>
+            <rect x="252" y="136" width="38" height="52" rx="10" fill="#F4F1EA" stroke="#C9BFAC"/>
+            <rect x="150" y="150" width="80" height="56" rx="3" fill="url(#gGlass)" stroke="#C9BFAC"/>
+            <g stroke="#8A8E95" stroke-width="1">
+              <line x1="96" y1="228" x2="304" y2="228"/><line x1="96" y1="222" x2="96" y2="234"/><line x1="304" y1="222" x2="304" y2="234"/>
+            </g>
+            <rect x="168" y="219" width="64" height="18" fill="#F1EBE0"/>
+            <text x="200" y="233" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5F636A">2 400</text>
+          </svg>
+        </div>
+        <div class="work-body">
+          <h3>Санузел с пеналом</h3>
+          <div class="work-meta">
+            <div><b>Площадь</b><span>4,1 м²</span></div>
+            <div><b>Материал</b><span>Влагостойкий МДФ, эмаль</span></div>
+            <div><b>Особенность</b><span>Обход инсталляции и стояка</span></div>
+            <div><b>Срок</b><span>17 рабочих дней</span></div>
+          </div>
+          <button class="work-cta" data-modal="Хочу такой же проект: санузел">Хочу такой же →</button>
+        </div>
+      </article>
+    </div>
+
+    <p id="works-empty" class="lead" hidden style="margin-top:24px;color:var(--ink-soft)">В этой категории проекты пока не опубликованы — напишите нам, покажем работы из архива.</p>
+
+    </div>
+
+    <aside class="wgal" aria-label="Фото сданных объектов">
+      <div>
+        <p class="wgal-eyebrow">Живые фото</p>
+        <h3 class="wgal-h">Как это выглядит на объекте</h3>
+      </div>
+
+      <div class="wgal-panel" data-panel="all">
+        <div class="wgal-track" id="wgal-track-all" tabindex="0" role="group" aria-label="Фото реализованных проектов (Все проекты), листается стрелками">
+        <figure class="wgal-slide">
+          <img src="Content/work-01.jpg" alt="Кухня с рифлёным чёрным островом и латунным кантом" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Кухня с рифлёным островом</b><span>Латунный кант · кварцевая столешница · барная зона на троих</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-02.jpg" alt="Навесной шкаф над раковиной в санузле с латунной вставкой" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Шкаф над раковиной</b><span>Матовый графит · латунная вставка · подсветка столешницы</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-03.jpg" alt="Ванная в керамограните под мрамор с подсветкой зеркала и отдельностоящей ванной" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Санузел в камне</b><span>Керамогранит под мрамор · подсветка зеркала по контуру</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-04.jpg" alt="Встроенный шкаф-купе с рифлёным фасадом и латунными вставками во всю высоту" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Шкаф-купе в прихожей</b><span>Рифлёный фасад · латунные вставки во всю высоту</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-05.jpg" alt="Пенал с рифлёными дверцами и латунной фурнитурой у ванной комнаты" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Пенал у ванной комнаты</b><span>Рифлёные дверцы · латунная фурнитура</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-06.jpg" alt="Открытая гардеробная система с подсветкой полок, штангами и ящиками" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Открытая гардеробная</b><span>Подсветка по контуру полок · штанги и ящики с доводчиком</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-07.jpg" alt="Прихожая с фасадом от пола до потолка, латунной вставкой и зеркальными дверями" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Прихожая в полный рост</b><span>Тёмный шпон · латунная вставка · зеркальные двери</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-08.jpg" alt="Туалетный столик с латунным каркасом и подсветкой в нише спальни" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Столик в нише спальни</b><span>Латунный каркас · встроенная подсветка</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-09.jpg" alt="Рабочий уголок в детской со встроенным стеллажом и тематическими обоями" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Уголок в детской</b><span>Встроенный стеллаж · оформление по проекту клиента</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-10.jpg" alt="Стеновая система с камином, витринами и нишей под телевизор" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Стеновая система с камином</b><span>Классические фасады · витрины со стеклом</span></figcaption>
+        </figure>
+        </div>
+
+        <div class="wgal-ctl">
+          <button class="wgal-btn" id="wgal-prev-all" aria-label="Предыдущее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M17 6H1M7 1 1 6l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="wgal-count"><b id="wgal-cur-all">01</b> / 10</span>
+          <button class="wgal-btn" id="wgal-next-all" aria-label="Следующее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M11 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="wgal-dots" id="wgal-dots-all" role="tablist" aria-label="Выбор фото"></div>
+      </div>
+
+      <div class="wgal-panel" data-panel="kitchen" hidden>
+        <div class="wgal-track" id="wgal-track-kitchen" tabindex="0" role="group" aria-label="Фото реализованных проектов (Кухни), листается стрелками">
+        <figure class="wgal-slide">
+          <img src="Content/work-01.jpg" alt="Кухня с рифлёным чёрным островом и латунным кантом" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Кухня с рифлёным островом</b><span>Латунный кант · кварцевая столешница · барная зона на троих</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kitchen-01.jpg" alt="Кухня графитового цвета с латунными молдингами и мраморным фартуком" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Графитовая кухня с латунью</b><span>Латунные молдинги · мраморный фартук · хрустальные подвесы</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kitchen-02.jpg" alt="Кухня с тёмным фасадом, мраморным полом и обеденной группой у окна" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Кухня-гостиная с камнем</b><span>Тёмный фасад · мраморный пол · обеденная группа</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kitchen-03.jpg" alt="Кухня с обеденной зоной, панорамными окнами и хрустальной люстрой" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Кухня с обеденной зоной</b><span>Панорамные окна · хрустальная люстра · остров с подсветкой</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kitchen-04.jpg" alt="Кухонный остров с барной стойкой, латунным кантом и подсветкой столешницы" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Барная стойка у окна</b><span>Латунный кант · подсветка столешницы · высокие стулья</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kitchen-05.jpg" alt="Кухня-студия с рифлёным островом, латунными ручками и обеденной зоной" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Кухня-студия с латунью</b><span>Рифлёный остров · латунные ручки · зона для гостей</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kitchen-06.jpg" alt="Классическая кухня с патинированным фасадом и тёплой LED-подсветкой шкафов" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Классическая кухня с подсветкой</b><span>Патинированный фасад · встроенная техника · тёплая LED-подсветка</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kitchen-07.jpg" alt="Кухонный остров с рифлёным фасадом, мраморной столешницей и латунной фурнитурой" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Остров с рифлёным фасадом</b><span>Мраморная столешница · рифлёные фасады · латунная фурнитура</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kitchen-08.jpg" alt="Кухня в мансарде с графитовым фасадом, встроенной духовкой и скошенным потолком" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Кухня в мансарде</b><span>Графитовый фасад · встроенная духовка · скошенный потолок</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kitchen-09.jpg" alt="Мансардная кухня с кольцевым светильником и матовым графитовым фасадом" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Мансардная кухня с подсветкой</b><span>Кольцевой светильник · матовый фасад · встроенная техника</span></figcaption>
+        </figure>
+        </div>
+
+        <div class="wgal-ctl">
+          <button class="wgal-btn" id="wgal-prev-kitchen" aria-label="Предыдущее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M17 6H1M7 1 1 6l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="wgal-count"><b id="wgal-cur-kitchen">01</b> / 10</span>
+          <button class="wgal-btn" id="wgal-next-kitchen" aria-label="Следующее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M11 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="wgal-dots" id="wgal-dots-kitchen" role="tablist" aria-label="Выбор фото"></div>
+      </div>
+
+      <div class="wgal-panel" data-panel="wardrobe" hidden>
+        <div class="wgal-track" id="wgal-track-wardrobe" tabindex="0" role="group" aria-label="Фото реализованных проектов (Шкафы), листается стрелками">
+        <figure class="wgal-slide">
+          <img src="Content/work-04.jpg" alt="Встроенный шкаф-купе с рифлёным фасадом и латунными вставками во всю высоту" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Шкаф-купе в прихожей</b><span>Рифлёный фасад · латунные вставки во всю высоту</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-wardrobe-01.jpg" alt="Встроенный шкаф с рифлёным фасадом и латунными ручками во всю высоту" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Гардероб с латунными ручками</b><span>Рифлёный фасад · латунные ручки во всю высоту</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-wardrobe-02.jpg" alt="Зеркальный шкаф-купе с зеркальными дверями в широком коридоре" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Зеркальный шкаф-купе</b><span>Зеркальные двери · встроенная подсветка ниш</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-wardrobe-03.jpg" alt="Белый филёнчатый шкаф с латунными круглыми ручками" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Шкаф с круглыми ручками</b><span>Филёнчатый фасад · латунные кольца-ручки</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-wardrobe-04.jpg" alt="Тёмный рифлёный шкаф с латунными вставками и открытой дверцей" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Шкаф с латунными вставками</b><span>Тёмный рифлёный фасад · латунные полосы · внутренняя подсветка</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-wardrobe-05.jpg" alt="Шкаф с остеклёнными решётчатыми дверцами в классическом стиле" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Шкаф с решётчатым стеклом</b><span>Остеклённые дверцы · классическая расстекловка</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-wardrobe-06.jpg" alt="Шкаф-стеллаж с открытыми полками, встроенным столом и подсветкой" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Шкаф с рабочей зоной</b><span>Открытые полки · подсветка столешницы · встроенный стол</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-wardrobe-07.jpg" alt="Встроенный стеллаж с открытыми нишами, тёплой подсветкой и рабочей столешницей" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Стеллаж с подсветкой</b><span>Открытые ниши · тёплая подсветка · рабочая столешница</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-wardrobe-08.jpg" alt="Высокий шкаф с гладким фасадом и латунной ручкой на мраморном полу" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Высокий шкаф в спальне</b><span>Гладкий фасад · латунная ручка · мраморный пол</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-wardrobe-09.jpg" alt="Шкаф-купе с зеркальными дверями в пол вдоль коридора" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Шкаф-купе в коридоре</b><span>Зеркальные двери в пол · тёмный кант</span></figcaption>
+        </figure>
+        </div>
+
+        <div class="wgal-ctl">
+          <button class="wgal-btn" id="wgal-prev-wardrobe" aria-label="Предыдущее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M17 6H1M7 1 1 6l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="wgal-count"><b id="wgal-cur-wardrobe">01</b> / 10</span>
+          <button class="wgal-btn" id="wgal-next-wardrobe" aria-label="Следующее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M11 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="wgal-dots" id="wgal-dots-wardrobe" role="tablist" aria-label="Выбор фото"></div>
+      </div>
+
+      <div class="wgal-panel" data-panel="dressing" hidden>
+        <div class="wgal-track" id="wgal-track-dressing" tabindex="0" role="group" aria-label="Фото реализованных проектов (Гардеробные), листается стрелками">
+        <figure class="wgal-slide">
+          <img src="Content/work-06.jpg" alt="Открытая гардеробная система с подсветкой полок, штангами и ящиками" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Открытая гардеробная</b><span>Подсветка по контуру полок · штанги и ящики с доводчиком</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-dressing-01.jpg" alt="Открытая гардеробная с полками, выдвижными ящиками и мраморным полом" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Гардеробная с открытыми полками</b><span>Открытые секции · выдвижные ящики · мраморный пол</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-dressing-02.jpg" alt="Гардеробная система с открытым хранением и встроенным зеркалом" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Гардеробная с зеркалом</b><span>Открытое хранение · встроенное зеркало</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-dressing-03.jpg" alt="Гардеробная с LED-подсветкой полок, фактурными ящиками и паркетом ёлочкой" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Гардеробная с подсветкой</b><span>LED-подсветка полок · ящики с фактурным фасадом · паркет ёлочкой</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-dressing-04.jpg" alt="Гардеробная во всю стену с подсветкой каждой полки и пуфом в центре" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Гардеробная во всю стену</b><span>Подсветка каждой полки · пуф · ящики с фактурным фасадом</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-dressing-05.jpg" alt="Открытая гардеробная с тёмными акцентами и подсветкой по контуру полок" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Гардеробная с тёмным акцентом</b><span>Открытые полки · штанги для одежды · подсветка контуром</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-dressing-06.jpg" alt="Гардеробная с продуманной системой хранения обуви и одежды" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Гардеробная с системой хранения</b><span>Секции для обуви и одежды · встроенная подсветка</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-dressing-07.jpg" alt="Гардеробная с открытыми модулями и выдвижными ящиками контрастного цвета" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Гардеробная с ящиками</b><span>Открытые модули · выдвижные ящики контрастного цвета</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-dressing-08.jpg" alt="Гардеробная-коридор с зеркальными дверями в пол и местом для обуви" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Гардеробная-коридор</b><span>Зеркальные двери в пол · место для обуви</span></figcaption>
+        </figure>
+        </div>
+
+        <div class="wgal-ctl">
+          <button class="wgal-btn" id="wgal-prev-dressing" aria-label="Предыдущее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M17 6H1M7 1 1 6l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="wgal-count"><b id="wgal-cur-dressing">01</b> / 9</span>
+          <button class="wgal-btn" id="wgal-next-dressing" aria-label="Следующее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M11 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="wgal-dots" id="wgal-dots-dressing" role="tablist" aria-label="Выбор фото"></div>
+      </div>
+
+      <div class="wgal-panel" data-panel="bedroom" hidden>
+        <div class="wgal-track" id="wgal-track-bedroom" tabindex="0" role="group" aria-label="Фото реализованных проектов (Спальни), листается стрелками">
+        <figure class="wgal-slide">
+          <img src="Content/work-08.jpg" alt="Туалетный столик с латунным каркасом и подсветкой в нише спальни" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Столик в нише спальни</b><span>Латунный каркас · встроенная подсветка</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bedroom-01.jpg" alt="Ниша с туалетным столиком, встроенными полками и тёплой подсветкой" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Ниша с туалетным столиком</b><span>Встроенные полки · тёплая подсветка · паркетная доска</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bedroom-02.jpg" alt="Спальня со шкафом-купе, раздвижными дверями и мягким изголовьем кровати" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Спальня со шкафом-купе</b><span>Раздвижные двери · мягкое изголовье · бежевая гамма</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bedroom-03.jpg" alt="Кровать у шкафа-купе с раздвижным фасадом и стёганым покрывалом" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Кровать у шкафа-купе</b><span>Стёганое покрывало · раздвижной фасад · тёплый свет</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bedroom-04.jpg" alt="Спальня с зеркальным шкафом-купе в пол и панорамным видом на город" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Спальня с зеркальным шкафом</b><span>Зеркальные фасады в пол · панорамный вид · подсветка периметром</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bedroom-05.jpg" alt="Спальня с панорамным окном, зеркальным шкафом и хрустальными подвесными светильниками" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Спальня с панорамным окном</b><span>Кровать у окна · зеркальный шкаф · хрустальные подвесы</span></figcaption>
+        </figure>
+        </div>
+
+        <div class="wgal-ctl">
+          <button class="wgal-btn" id="wgal-prev-bedroom" aria-label="Предыдущее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M17 6H1M7 1 1 6l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="wgal-count"><b id="wgal-cur-bedroom">01</b> / 6</span>
+          <button class="wgal-btn" id="wgal-next-bedroom" aria-label="Следующее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M11 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="wgal-dots" id="wgal-dots-bedroom" role="tablist" aria-label="Выбор фото"></div>
+      </div>
+
+      <div class="wgal-panel" data-panel="kids" hidden>
+        <div class="wgal-track" id="wgal-track-kids" tabindex="0" role="group" aria-label="Фото реализованных проектов (Детские), листается стрелками">
+        <figure class="wgal-slide">
+          <img src="Content/work-09.jpg" alt="Рабочий уголок в детской со встроенным стеллажом и тематическими обоями" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Уголок в детской</b><span>Встроенный стеллаж · оформление по проекту клиента</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kids-01.jpg" alt="Детская комната со звёздным принтом на стене, открытым стеллажом и рабочим столом" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Детская со звёздным небом</b><span>Тёмно-синяя стена · открытый стеллаж · рабочий стол</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kids-02.jpg" alt="Ниша со стеллажом в детской, панорамным окном и портьерами" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Ниша со стеллажом в детской</b><span>Встроенные полки · панорамное окно · плотные шторы</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-kids-03.jpg" alt="Парящий письменный стол в детской на стеклянной опоре с паркетом ёлочкой" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Письменный стол в детской</b><span>Стеклянная опора · паркет ёлочкой · декор по тематике</span></figcaption>
+        </figure>
+        </div>
+
+        <div class="wgal-ctl">
+          <button class="wgal-btn" id="wgal-prev-kids" aria-label="Предыдущее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M17 6H1M7 1 1 6l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="wgal-count"><b id="wgal-cur-kids">01</b> / 4</span>
+          <button class="wgal-btn" id="wgal-next-kids" aria-label="Следующее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M11 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="wgal-dots" id="wgal-dots-kids" role="tablist" aria-label="Выбор фото"></div>
+      </div>
+
+      <div class="wgal-panel" data-panel="bath" hidden>
+        <div class="wgal-track" id="wgal-track-bath" tabindex="0" role="group" aria-label="Фото реализованных проектов (Санузлы), листается стрелками">
+        <figure class="wgal-slide">
+          <img src="Content/work-02.jpg" alt="Навесной шкаф над раковиной в санузле с латунной вставкой" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Шкаф над раковиной</b><span>Матовый графит · латунная вставка · подсветка столешницы</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-03.jpg" alt="Ванная в керамограните под мрамор с подсветкой зеркала и отдельностоящей ванной" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Санузел в камне</b><span>Керамогранит под мрамор · подсветка зеркала по контуру</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/work-05.jpg" alt="Пенал с рифлёными дверцами и латунной фурнитурой у ванной комнаты" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Пенал у ванной комнаты</b><span>Рифлёные дверцы · латунная фурнитура</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bath-01.jpg" alt="Санузел с двумя накладными раковинами, рифлёным фасадом и латунными смесителями" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Санузел с двумя раковинами</b><span>Рифлёный фасад · латунные смесители · накладные раковины</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bath-02.jpg" alt="Санузел в графитовом керамограните с подсветкой зеркала и деревянной столешницей" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Санузел с подсветкой зеркала</b><span>Керамогранит графитового тона · тёплая подсветка · деревянная столешница</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bath-03.jpg" alt="Санузел с мраморной отделкой, подвесными светильниками и тёмным шпоном" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Санузел с каменной отделкой</b><span>Мрамор с прожилками · подвесные светильники · тёмный шпон</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bath-04.jpg" alt="Ванная комната с подвесной тумбой и зеркалом в латунной раме" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Ванная с латунной рамой</b><span>Подвесная тумба · латунная рама зеркала · натуральный камень</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bath-05.jpg" alt="Узкий санузел в мраморе с латунными аксессуарами" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Санузел в мраморе</b><span>Латунные аксессуары · панели из натурального камня</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bath-06.jpg" alt="Ванная комната с хрустальной люстрой, двойной раковиной и мрамором во всю стену" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Ванная с хрустальной люстрой</b><span>Двойная раковина · стеклянная душевая · мрамор во всю стену</span></figcaption>
+        </figure>
+        <figure class="wgal-slide">
+          <img src="Content/wgal-bath-07.jpg" alt="Компактный санузел с круглым зеркалом и тёмной плиткой" width="960" height="1200" loading="lazy" decoding="async">
+          <figcaption><b>Компактный санузел</b><span>Круглое зеркало · тёмная плитка · встроенная тумба</span></figcaption>
+        </figure>
+        </div>
+
+        <div class="wgal-ctl">
+          <button class="wgal-btn" id="wgal-prev-bath" aria-label="Предыдущее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M17 6H1M7 1 1 6l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="wgal-count"><b id="wgal-cur-bath">01</b> / 10</span>
+          <button class="wgal-btn" id="wgal-next-bath" aria-label="Следующее фото">
+            <svg width="15" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M11 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="wgal-dots" id="wgal-dots-bath" role="tablist" aria-label="Выбор фото"></div>
+      </div>
+    </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= МАТЕРИАЛЫ ================= -->
+<section class="section" id="materials">
+  <div class="wrap mat-grid">
+    <div>
+      <p class="eyebrow">Материалы и фурнитура</p>
+      <h2>Из чего собирается «высочайшее качество»</h2>
+      <p class="lead" style="margin-top:18px;color:var(--ink-soft)">Качество мебели — это не слово в рекламе, а конкретный перечень: плита с низкой эмиссией, кромка нужной толщины, петля с заявленным ресурсом. Всё это указывается в спецификации к договору, и вы можете проверить каждую позицию.</p>
+
+      <div class="brands" aria-label="Поставщики материалов и фурнитуры">
+        <span>Blum</span><span>Hettich</span><span>Egger</span><span>Kronospan</span><span>Rehau</span><span>Grass</span><span>Cleaf</span><span>AGT</span>
+      </div>
+      <!-- ЗАМЕНИТЬ: список брендов — согласовать с реальными поставщиками и правом использовать их марки -->
+      <p style="margin-top:22px;font-size:.88rem;color:var(--ink-mute)">Конкретные артикулы и декоры подбираем на замере — привозим образцы плит и кромок к вам домой, чтобы вы смотрели их при своём освещении.</p>
+    </div>
+
+    <div>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-chip" style="background:linear-gradient(150deg,#C9A87A,#A07C50 60%,#8A6A45)"></div>
+          <b>ЛДСП</b><small>E0.5 · кромка ABS 2 мм</small>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:linear-gradient(150deg,#F2EFE8,#DDD7CB)"></div>
+          <b>МДФ-эмаль</b><small>5 слоёв · мат / глянец</small>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:repeating-linear-gradient(97deg,#8A6A45,#8A6A45 5px,#9C7A52 5px,#9C7A52 10px)"></div>
+          <b>Шпон</b><small>Дуб, орех · лак</small>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:linear-gradient(150deg,#3B4046,#22262B)"></div>
+          <b>Кварц</b><small>Столешницы · 20 мм</small>
+        </div>
+      </div>
+
+      <div class="prod-list" style="background:var(--line-soft);border-color:var(--line-soft);margin-top:30px">
+        <div style="background:var(--ivory)"><b style="color:var(--walnut)">01</b><p style="color:var(--ink-soft)"><strong style="color:var(--ink)">Кромка ABS 2 мм</strong>По всему периметру, включая задние торцы. Тонкая кромка 0,4 мм дешевле, но именно она отслаивается первой.</p></div>
+        <div style="background:var(--ivory)"><b style="color:var(--walnut)">02</b><p style="color:var(--ink-soft)"><strong style="color:var(--ink)">Класс эмиссии E0.5</strong>Плиты с минимальным содержанием формальдегида — норма для детских комнат и спален.</p></div>
+        <div style="background:var(--ivory)"><b style="color:var(--walnut)">03</b><p style="color:var(--ink-soft)"><strong style="color:var(--ink)">Фурнитура с доводчиками</strong>Петли и направляющие полного выдвижения Blum и Hettich, подъёмники на верхние фасады.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= КВИЗ-КАЛЬКУЛЯТОР ================= -->
+<section class="section section-deep" id="calc">
+  <div class="wrap">
+    <div class="sec-head stack" style="max-width:64ch">
+      <div>
+        <p class="eyebrow">Расчёт стоимости</p>
+        <h2>Узнайте порядок цены за четыре шага</h2>
+        <p class="lead" style="margin-top:16px">Это предварительная вилка по нашим базовым ставкам, а не коммерческое предложение. Точная смета появляется только после замера — когда известны реальные размеры, а не «примерно три метра».</p>
+      </div>
+    </div>
+
+    <div class="quiz" id="quiz">
+      <div class="quiz-head">
+        <div class="quiz-step-lbl">
+          <span id="quiz-name">Категория мебели</span>
+          <span>Шаг <b id="quiz-cur">1</b> из 4</span>
+        </div>
+        <div class="quiz-bar" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" aria-label="Прогресс расчёта"><i id="quiz-fill"></i></div>
+      </div>
+
+      <div class="quiz-body">
+        <!-- Шаг 1 -->
+        <div class="quiz-step" data-step="1">
+          <p class="quiz-q">Что вы планируете заказать?</p>
+          <p class="quiz-hint">Если нужно несколько предметов — выберите главный, остальное учтём на консультации.</p>
+          <div class="opts cols-4" role="group" aria-label="Категория мебели">
+            <button class="opt" data-group="cat" data-label="Кухня" data-base="42000">Кухня</button>
+            <button class="opt" data-group="cat" data-label="Шкаф" data-base="31000">Шкаф</button>
+            <button class="opt" data-group="cat" data-label="Гардеробная" data-base="46000">Гардеробная</button>
+            <button class="opt" data-group="cat" data-label="Прихожая" data-base="34000">Прихожая</button>
+            <button class="opt" data-group="cat" data-label="Спальня" data-base="38000">Спальня</button>
+            <button class="opt" data-group="cat" data-label="Санузел" data-base="40000">Санузел</button>
+            <button class="opt" data-group="cat" data-label="Детская" data-base="36000">Детская</button>
+          </div>
+        </div>
+
+        <!-- Шаг 2 -->
+        <div class="quiz-step" data-step="2" hidden>
+          <p class="quiz-q">Какая длина по фронту?</p>
+          <p class="quiz-hint">Общая длина мебели вдоль стен. Для угловой кухни сложите обе стороны — точность до полуметра здесь достаточная.</p>
+          <div class="opts cols-4" role="group" aria-label="Длина по фронту">
+            <button class="opt" data-group="len" data-label="до 2 м" data-mult="2">до 2 м<small>компактное решение</small></button>
+            <button class="opt" data-group="len" data-label="2–3,5 м" data-mult="3">2–3,5 м<small>типовое помещение</small></button>
+            <button class="opt" data-group="len" data-label="3,5–5 м" data-mult="4.5">3,5–5 м<small>угловая планировка</small></button>
+            <button class="opt" data-group="len" data-label="более 5 м" data-mult="6.2">более 5 м<small>П-образная, с островом</small></button>
+          </div>
+        </div>
+
+        <!-- Шаг 3 -->
+        <div class="quiz-step" data-step="3" hidden>
+          <p class="quiz-q">Материал фасадов</p>
+          <p class="quiz-hint">Материал сильнее всего влияет на итог. На замере привезём образцы — сравните вживую.</p>
+          <div class="opts cols-2" role="group" aria-label="Материал фасадов">
+            <button class="opt" data-group="mat" data-label="ЛДСП" data-mult="1">ЛДСП<small>практично, большой выбор декоров</small></button>
+            <button class="opt" data-group="mat" data-label="МДФ в плёнке" data-mult="1.25">МДФ в плёнке<small>фрезеровка, мягкие формы</small></button>
+            <button class="opt" data-group="mat" data-label="МДФ-эмаль" data-mult="1.6">МДФ-эмаль<small>любой цвет, мат или глянец</small></button>
+            <button class="opt" data-group="mat" data-label="Шпон или массив" data-mult="2.1">Шпон или массив<small>натуральная текстура дерева</small></button>
+          </div>
+        </div>
+
+        <!-- Шаг 4 -->
+        <div class="quiz-step" data-step="4" hidden>
+          <div class="quiz-result">
+            <p class="quiz-price"><small>Ориентировочная стоимость</small><span id="quiz-price">—</span></p>
+            <p class="quiz-sum" id="quiz-sum"></p>
+          </div>
+          <form class="quiz-form" id="quiz-form" novalidate>
+            <div class="field">
+              <label for="q-name">Как к вам обращаться</label>
+              <input id="q-name" name="name" type="text" autocomplete="name" placeholder="Имя">
+            </div>
+            <div class="field">
+              <label for="q-tel">Телефон для связи</label>
+              <input id="q-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+              <span class="err" id="q-tel-err"></span>
+            </div>
+            <label class="consent form-span">
+              <input type="checkbox" name="consent" required>
+              <span>Согласен на обработку персональных данных в соответствии с <a href="#privacy">политикой конфиденциальности</a>.</span>
+            </label>
+            <button type="submit" class="btn btn-primary form-span">Получить точный расчёт после замера</button>
+            <p class="form-span" style="font-size:.8rem;color:var(--ink-mute);margin:0">Перезвоним в рабочее время, обычно в течение 20 минут. Без рассылок и повторных звонков без вашего запроса.</p>
+          </form>
+        </div>
+      </div>
+
+      <div class="quiz-body" id="quiz-nav-wrap" style="padding-top:0">
+        <div class="quiz-nav">
+          <button class="btn btn-ghost" id="quiz-back" disabled>Назад</button>
+          <button class="btn btn-primary" id="quiz-next" disabled>Далее</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ОТЗЫВЫ ================= -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Отзывы</p>
+        <h2>Что говорят клиенты</h2>
+      </div>
+      <p class="lead">Мы не публикуем безымянные отзывы «Мария, довольна». Каждый отзыв — про конкретный проект, и его можно проверить на внешних площадках.
+      <!-- ЗАМЕНИТЬ: тексты отзывов на реальные, с согласия клиентов --></p>
+    </div>
+
+    <div class="revs">
+      <article class="rev">
+        <div class="rev-stars" aria-label="Оценка 5 из 5">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+        </div>
+        <p>Заказывали кухню в новостройке, где стены разошлись на четыре сантиметра. Другие подрядчики предлагали «закрыть декоративной планкой», здесь сделали компенсационный профиль и подогнали столешницу по месту. Зазоров нет вообще.</p>
+        <div class="rev-who"><b>Ирина К.</b><small>Кухня 4,1 м · ЖК в Красногорске</small></div>
+      </article>
+
+      <article class="rev">
+        <div class="rev-stars" aria-label="Оценка 5 из 5">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+        </div>
+        <p>Обставляли квартиру целиком: кухня, две спальни, гардеробная и прихожая. Ценно, что всё вела одна команда — не пришлось сводить оттенки шпона между разными подрядчиками. Смету не двигали ни разу, хотя мы дважды меняли наполнение.</p>
+        <div class="rev-who"><b>Дмитрий и Анна С.</b><small>Комплексная меблировка · Москва, Раменки</small></div>
+      </article>
+
+      <article class="rev">
+        <div class="rev-stars" aria-label="Оценка 5 из 5">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="m8 1 2 4.6 5 .5-3.8 3.3 1.1 4.9L8 11.7 3.7 14.3l1.1-4.9L1 6.1l5-.5z"/></svg>
+        </div>
+        <p>Через полтора года после монтажа перестал держать подъёмник на верхнем фасаде. Написал в мессенджер вечером, мастер приехал через два дня и заменил по гарантии бесплатно, без разговоров про «нарушение эксплуатации».</p>
+        <div class="rev-who"><b>Сергей В.</b><small>Кухня и прихожая · Мытищи</small></div>
+      </article>
+    </div>
+
+    <p style="margin-top:26px;font-size:.9rem;color:var(--ink-mute)">
+      <!-- ЗАМЕНИТЬ: ссылки на реальные карточки компании -->
+      Отзывы также можно посмотреть на <a href="#reviews" style="text-decoration:underline;text-underline-offset:2px">Яндекс.Картах</a> и в <a href="#reviews" style="text-decoration:underline;text-underline-offset:2px">2ГИС</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ================= ГАРАНТИЯ ================= -->
+<section class="section section-dark" id="warranty">
+  <div class="wrap warr">
+    <div class="warr-badge">
+      <div class="warr-num">3</div>
+      <b>года гарантии</b>
+      <small>по договору · с даты подписания акта</small>
+    </div>
+    <div>
+      <p class="eyebrow">Гарантии и сервис</p>
+      <h2 style="color:#F3F0EA">Гарантия — это документ, а не обещание</h2>
+      <p style="color:#A9AEB5;margin:16px 0 26px;max-width:56ch">Срок и условия прописаны в договоре, а не «на словах менеджера». Ниже — что именно покрывается и как это работает на практике.</p>
+      <div class="warr-list">
+        <div>
+          <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg>
+          <p><strong>Корпус, фасады и покрытие</strong>Расслоение кромки, деформация корпуса, дефекты эмали и лака — устраняем или меняем деталь за свой счёт.</p>
+        </div>
+        <div>
+          <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg>
+          <p><strong>Фурнитура и механизмы</strong>Петли, направляющие, подъёмники и доводчики. Заменяем на новые, выезд мастера входит в гарантию.</p>
+        </div>
+        <div>
+          <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg>
+          <p><strong>Работы по монтажу</strong>Если мебель просела, перекосилась или разошлись зазоры по нашей вине — приезжаем и выравниваем.</p>
+        </div>
+        <div>
+          <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 3v14M3 10h14"/></svg>
+          <p><strong>Сервис после гарантии</strong>Регулировка, замена фурнитуры и доукомплектование остаются доступны и позже — по прайсу на работы, без наценки «за старый заказ».</p>
+        </div>
+      </div>
+      <p style="margin-top:24px;font-size:.86rem;color:#8A8E95">Гарантия не распространяется на механические повреждения, самостоятельную переделку и нарушение правил эксплуатации — их перечень выдаём вместе с актом.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Вопросы и ответы</p>
+        <h2>О чём спрашивают до договора</h2>
+      </div>
+      <p class="lead">Если вашего вопроса здесь нет — задайте его в мессенджере, отвечаем без «оставьте номер, вам перезвонят».</p>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>Сколько стоит замер и дизайн-проект?</summary>
+        <p class="faq-a">Ничего. Выезд инженера, обмерный план, визуализация и подробная смета бесплатны и ни к чему вас не обязывают: вы можете взять проект и подумать. Мы не берём предоплату за проектирование и не удерживаем макеты «до заключения договора».</p>
+      </details>
+      <details>
+        <summary>Сколько времени занимает изготовление?</summary>
+        <p class="faq-a">От 10 до 30 рабочих дней на производство в зависимости от материала фасадов: ЛДСП быстрее, эмаль и шпон дольше из-за сушки покрытия. Монтаж занимает один-два дня. Срок фиксируется в договоре вместе с ответственностью за его нарушение.</p>
+      </details>
+      <details>
+        <summary>Какая гарантия и что она покрывает?</summary>
+        <p class="faq-a">Три года с даты подписания акта приёмки — на корпус, фасады, покрытие, фурнитуру и работы по монтажу. Выезд мастера в рамках гарантии бесплатный. После окончания срока сервис остаётся доступен по стандартному прайсу.</p>
+      </details>
+      <details>
+        <summary>Работаете ли вы с нестандартными размерами и сложными планировками?</summary>
+        <p class="faq-a">Это основная часть заказов. Потолки 3,2 м, вентиляционные короба посреди стены, скошенные мансардные потолки, ниши с перепадом по глубине, стены с завалом в несколько сантиметров — всё это решается на этапе замера и проектирования, а не «подрезкой по месту» при монтаже.</p>
+      </details>
+      <details>
+        <summary>Можно ли заказать мебель сразу для всей квартиры?</summary>
+        <p class="faq-a">Да, и это выгоднее: один замер на все помещения, единая партия материалов и один монтаж вместо нескольких. Оттенки плит и шпона в этом случае гарантированно совпадают — при заказе в разное время партии могут отличаться по тону.</p>
+      </details>
+      <details>
+        <summary>В какие города вы доставляете?</summary>
+        <p class="faq-a">Москва и Московская область. Доставка в пределах МКАД входит в стоимость заказа, за область считается по километражу — сумма указывается в смете до подписания договора, а не появляется в день монтажа.</p>
+      </details>
+      <details>
+        <summary>Какие способы оплаты и есть ли рассрочка?</summary>
+        <p class="faq-a">Наличные, карта, безналичный расчёт для юридических лиц. Стандартная схема — предоплата при подписании договора и остаток после монтажа. <!-- ЗАМЕНИТЬ: указать размер предоплаты и банк-партнёр по рассрочке --> Рассрочка оформляется через банк-партнёра, условия уточняйте у менеджера.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= СПЕЦПРЕДЛОЖЕНИЕ ================= -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="offer" id="offer">
+      <div>
+        <p class="eyebrow">Предложение месяца</p>
+        <h2>Замер, проект и смета — бесплатно</h2>
+        <p>Инженер приедет, снимет размеры и привезёт образцы материалов. Вы получите визуализацию и смету с ценой по каждой позиции — и решите спокойно, без давления менеджера.</p>
+        <div class="offer-list">
+          <div><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg><span>Выезд инженера в Москве и МО — бесплатно</span></div>
+          <div><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg><span>3D-визуализация и планировка наполнения</span></div>
+          <div><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg><span>Смета с расшифровкой по каждой позиции</span></div>
+          <div><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg><span>Проект остаётся у вас, даже если вы не заключите договор</span></div>
+        </div>
+      </div>
+
+      <form class="offer-form" id="offer-form" novalidate>
+        <div class="field">
+          <label for="o-name">Имя</label>
+          <input id="o-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться">
+        </div>
+        <div class="field">
+          <label for="o-tel">Телефон</label>
+          <input id="o-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+          <span class="err" id="o-tel-err"></span>
+        </div>
+        <div class="field">
+          <label for="o-cat">Что вас интересует</label>
+          <select id="o-cat" name="cat" style="padding:14px 15px;background:var(--graphite);border:1px solid var(--graphite-line);border-radius:var(--r);color:#EDEAE4">
+            <option>Кухня</option><option>Шкаф</option><option>Гардеробная</option><option>Прихожая</option>
+            <option>Спальня</option><option>Санузел</option><option>Детская</option><option>Меблировка квартиры целиком</option>
+          </select>
+        </div>
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>Согласен на обработку персональных данных в соответствии с <a href="#privacy">политикой конфиденциальности</a>.</span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Записаться на бесплатный замер</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= КОНТАКТЫ ================= -->
+<section class="section section-deep" id="contacts">
+  <div class="wrap cont">
+    <div>
+      <p class="eyebrow">Контакты</p>
+      <h2>Свяжитесь удобным способом</h2>
+      <p class="lead" style="margin-top:16px;color:var(--ink-soft)">Работаем в Москве и Московской области. Замер, показ образцов и презентацию проекта проводим у вас дома — так вы видите материалы при своём освещении и в своём интерьере.</p>
+
+      <div class="cont-rows">
+        <a href="tel:+79261857871"><b>Телефон</b><span>8(926)-185-78-71</span></a>
+        <a href="mailto:GiovannyFurniture@protonmail.com"><b>Почта</b><span>GiovannyFurniture@protonmail.com</span></a>
+        <div><b>Время работы</b><span>Ежедневно, с 10:00 до 22:00</span></div>
+        <div><b>География</b><span>Москва и Московская область</span></div>
+      </div>
+
+      <div class="msgr">
+        <!-- ЗАМЕНИТЬ: ссылки на мессенджеры -->
+        <a href="https://wa.me/79261857871" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="#B08D4F" stroke-width="1.5" aria-hidden="true"><path d="M3 17l1.2-3.6A7 7 0 1 1 6.8 16z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://t.me/+79261857871" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+          <svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="#B08D4F" stroke-width="1.5" aria-hidden="true"><path d="M17 4 2.5 9.6l4.2 1.4L15 6l-6.4 6.2.3 4.3 2.4-3"/></svg>
+          Telegram
+        </a>
+        <button class="btn btn-ghost" style="padding:11px 18px;font-size:.9rem" data-modal="Заказать обратный звонок">Заказать звонок</button>
+      </div>
+    </div>
+
+    <div class="map">
+      <p class="eyebrow" style="margin:0">Зона выезда</p>
+      <svg viewBox="0 0 420 300" role="img" aria-label="Схема зоны выезда: Москва в пределах МКАД и Московская область" style="width:100%;height:auto">
+        <rect width="420" height="300" fill="#E4DCCD"/>
+        <g stroke="#CFC4B0" stroke-width="1">
+          <line x1="0" y1="75" x2="420" y2="75"/><line x1="0" y1="150" x2="420" y2="150"/><line x1="0" y1="225" x2="420" y2="225"/>
+          <line x1="105" y1="0" x2="105" y2="300"/><line x1="210" y1="0" x2="210" y2="300"/><line x1="315" y1="0" x2="315" y2="300"/>
+        </g>
+        <circle cx="210" cy="150" r="120" fill="#D9CFBB" stroke="#B9AC93" stroke-width="1.5" stroke-dasharray="6 5"/>
+        <circle cx="210" cy="150" r="66" fill="#C9BCA1" stroke="#8A6A45" stroke-width="2"/>
+        <g stroke="#B08D4F" stroke-width="2">
+          <line x1="210" y1="84" x2="210" y2="30"/><line x1="210" y1="216" x2="210" y2="272"/>
+          <line x1="144" y1="150" x2="86" y2="150"/><line x1="276" y1="150" x2="336" y2="150"/>
+          <line x1="257" y1="103" x2="298" y2="62"/><line x1="163" y1="197" x2="122" y2="238"/>
+        </g>
+        <circle cx="210" cy="150" r="7" fill="#1C1F23"/>
+        <text x="210" y="140" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#2A2E34">МОСКВА</text>
+        <text x="210" y="252" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6E644F">МОСКОВСКАЯ ОБЛАСТЬ</text>
+      </svg>
+      <p class="map-note">В пределах МКАД доставка входит в стоимость заказа. За МКАД — по километражу, сумма фиксируется в смете до договора.
+      <!-- ЗАМЕНИТЬ: интерактивная карта Яндекс.Карт по ТЗ, п. 5.2 --></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= ПОДВАЛ ================= -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div>
+        <span class="logo-txt">
+          <span class="logo-name">Мебель Джованни</span>
+          <span class="logo-sub">Мебель на заказ</span>
+        </span>
+        <p class="ftr-about">Проектируем и производим мебель по индивидуальным размерам в Москве и Московской области. Собственное производство, гарантия 3 года по договору.</p>
+      </div>
+      <div>
+        <h4>Каталог</h4>
+        <div class="ftr-links">
+          <a href="#catalog">Кухни</a><a href="#catalog">Шкафы</a><a href="#catalog">Гардеробные</a>
+          <a href="#catalog">Прихожие</a><a href="#catalog">Спальни</a><a href="#catalog">Санузлы</a><a href="#catalog">Детские</a>
+        </div>
+      </div>
+      <div>
+        <h4>Компания</h4>
+        <div class="ftr-links">
+          <a href="#about">О компании</a><a href="#steps">Как мы работаем</a>
+          <a href="#works">Проекты</a><a href="#warranty">Гарантия и сервис</a><a href="#faq">Вопросы и ответы</a><a href="#contacts">Контакты</a>
+        </div>
+        <h4 style="margin-top:22px">Связь</h4>
+        <div class="ftr-links">
+          <a href="tel:+79261857871">8(926)-185-78-71</a>
+          <a href="mailto:GiovannyFurniture@protonmail.com">GiovannyFurniture@protonmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <!-- ЗАМЕНИТЬ: юридическое наименование, ИНН и ОГРН -->
+      <p>© 2026 «Мебель Джованни». ООО «Наименование», ИНН 0000000000, ОГРН 0000000000000. Не является публичной офертой: цены указаны как ориентир и уточняются после замера.</p>
+      <p><a href="#privacy" id="privacy">Политика конфиденциальности</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= МОБИЛЬНАЯ ПАНЕЛЬ ================= -->
+<div class="mbar">
+  <a class="mbar-tel" href="tel:+79261857871" aria-label="Позвонить">
+    <svg width="21" height="21" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 15.5v3a1.5 1.5 0 0 1-1.7 1.5A18 18 0 0 1 2 3.7 1.5 1.5 0 0 1 3.5 2h3A1.5 1.5 0 0 1 8 3.3c.1 1 .3 1.9.6 2.8a1.5 1.5 0 0 1-.3 1.6L7 9a15 15 0 0 0 6 6l1.3-1.3a1.5 1.5 0 0 1 1.6-.3c.9.3 1.8.5 2.8.6a1.5 1.5 0 0 1 1.3 1.5z"/></svg>
+  </a>
+  <button class="btn btn-primary" data-modal="Заявка на замер">Бесплатный замер</button>
+</div>
+
+<!-- ================= МОДАЛЬНОЕ ОКНО ================= -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Закрыть">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg>
+    </button>
+    <div id="modal-content">
+      <h3 id="modal-title">Записаться на замер</h3>
+      <p id="modal-sub">Инженер приедет в удобное время, снимет размеры и привезёт образцы. Бесплатно и без обязательств.</p>
+      <form class="modal-form" id="modal-form" novalidate>
+        <div class="field">
+          <label for="m-name">Имя</label>
+          <input id="m-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться">
+        </div>
+        <div class="field">
+          <label for="m-tel">Телефон</label>
+          <input id="m-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+          <span class="err" id="m-tel-err"></span>
+        </div>
+        <div class="field">
+          <label for="m-note">Комментарий <span style="text-transform:none;letter-spacing:0">— необязательно</span></label>
+          <textarea id="m-note" name="note" rows="2" placeholder="Помещение, сроки, пожелания"></textarea>
+        </div>
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>Согласен на обработку персональных данных в соответствии с <a href="#privacy">политикой конфиденциальности</a>.</span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $  = function(s,c){ return (c||document).querySelector(s); };
+  var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+  /* =========================================================
+     ТОЧКА ИНТЕГРАЦИИ С CRM / ПОЧТОЙ
+     Любая заявка (модальное окно, квиз-калькулятор, спецпредложение)
+     открывает WhatsApp менеджера с готовым текстом заявки на номер
+     8(926)-185-78-71. Разработчику: при подключении бэкенда можно
+     дополнительно отправлять payload на сервер и передавать цель
+     в Яндекс.Метрику / Google Analytics. См. ТЗ, п. 5.1–5.2.
+     ========================================================= */
+  var LEAD_WHATSAPP_PHONE = '79261857871';
+
+  var LEAD_SOURCE_LABELS = { modal:'Заявка с сайта', quiz:'Расчёт стоимости (квиз-калькулятор)', offer:'Спецпредложение' };
+  var LEAD_FIELD_LABELS = {
+    subject:'Тема', name:'Имя', phone:'Телефон', category:'Категория',
+    size:'Размер', material:'Материал', estimate:'Расчёт', note:'Комментарий'
+  };
+  var LEAD_FIELD_ORDER = ['subject','name','phone','category','size','material','estimate','note'];
+
+  function leadToWhatsAppText(payload){
+    var lines = ['Новая заявка с сайта «Мебель Джованни»'];
+    if (!payload.subject && LEAD_SOURCE_LABELS[payload.source]){
+      lines.push(LEAD_FIELD_LABELS.subject + ': ' + LEAD_SOURCE_LABELS[payload.source]);
+    }
+    LEAD_FIELD_ORDER.forEach(function(field){
+      var value = payload[field];
+      if (value) lines.push(LEAD_FIELD_LABELS[field] + ': ' + value);
+    });
+    return lines.join('\n');
+  }
+
+  function sendLead(payload){
+    // TODO: fetch('/api/lead', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)})
+    // TODO: typeof ym === 'function' && ym(XXXXXX, 'reachGoal', 'lead');
+    if (window.console) console.log('[Заявка]', payload);
+    try {
+      var text = leadToWhatsAppText(payload);
+      var url = 'https://wa.me/' + LEAD_WHATSAPP_PHONE + '?text=' + encodeURIComponent(text);
+      window.open(url, '_blank', 'noopener');
+    } catch (e) {
+      if (window.console) console.error('[Заявка → WhatsApp]', e);
+    }
+    return Promise.resolve();
+  }
+
+
+  /* ---------- Фотографии поверх схем ----------
+     Файла нет (или он не загрузился) — убираем <img>, остаётся чертёж. */
+  $$('.art > img, .cat-art > img, .car-slide > img').forEach(function(img){
+    function fallback(){ if (img.parentNode) img.remove(); }
+    function ok(){
+      if (!img.naturalWidth) return fallback();
+      img.classList.add('is-ok');
+      var svg = img.parentNode.querySelector('svg');
+      if (svg){ svg.setAttribute('aria-hidden','true'); svg.removeAttribute('role'); }
+    }
+    if (img.complete) { img.naturalWidth ? ok() : fallback(); }
+    else { img.addEventListener('load', ok); img.addEventListener('error', fallback); }
+  });
+
+  /* ---------- Телефон: маска и проверка ---------- */
+  function digits(v){ return (v||'').replace(/\D/g,''); }
+  function maskPhone(v){
+    var d = digits(v);
+    if (!d) return '';
+    if (d[0] === '8') d = '7' + d.slice(1);
+    if (d[0] !== '7') d = '7' + d;
+    d = d.slice(0,11);
+    var out = '+7';
+    if (d.length > 1) out += ' (' + d.slice(1,4);
+    if (d.length >= 4) out += ') ' + d.slice(4,7);
+    if (d.length >= 8) out += '-' + d.slice(7,9);
+    if (d.length >= 10) out += '-' + d.slice(9,11);
+    return out;
+  }
+  function validPhone(v){ return digits(v).length === 11; }
+
+  $$('input[type="tel"]').forEach(function(inp){
+    inp.addEventListener('input', function(){
+      var pos = inp.selectionStart === inp.value.length;
+      inp.value = maskPhone(inp.value);
+      if (pos) inp.setSelectionRange(inp.value.length, inp.value.length);
+      inp.setAttribute('aria-invalid','false');
+      var err = $('#' + inp.id + '-err'); if (err) err.textContent = '';
+    });
+  });
+
+  function checkForm(form){
+    var ok = true;
+    var tel = form.querySelector('input[type="tel"]');
+    if (tel){
+      var err = $('#' + tel.id + '-err');
+      if (!validPhone(tel.value)){
+        tel.setAttribute('aria-invalid','true');
+        if (err) err.textContent = 'Введите номер полностью: +7 и 10 цифр.';
+        ok = false;
+        tel.focus();
+      }
+    }
+    var consent = form.querySelector('input[name="consent"]');
+    if (ok && consent && !consent.checked){
+      consent.focus();
+      if (consent.reportValidity) consent.reportValidity();
+      ok = false;
+    }
+    return ok;
+  }
+  /* form.name — это атрибут формы, а не поле с name="name", поэтому берём поля явно */
+  function val(form, field){
+    var el = form.querySelector('[name="' + field + '"]');
+    return el ? el.value : '';
+  }
+
+  var doneMarkup = '<div class="done">' +
+    '<div class="done-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12.5 10 17.5 19 7"/></svg></div>' +
+    '<h3 style="font-family:var(--display);font-size:1.5rem;font-weight:500">Заявка принята</h3>' +
+    '<p style="color:var(--ink-soft);font-size:.94rem;max-width:38ch">Менеджер перезвонит в рабочее время, обычно в течение 20 минут, и согласует удобное время замера.</p>' +
+    '</div>';
+
+  /* ---------- Мобильное меню ---------- */
+  var burger = $('#burger'), mnav = $('#mnav');
+  function setNav(open){
+    burger.setAttribute('aria-expanded', String(open));
+    mnav.hidden = !open;
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function(){
+    setNav(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  $$('#mnav a').forEach(function(a){ a.addEventListener('click', function(){ setNav(false); }); });
+
+  /* ---------- Модальное окно ---------- */
+  var modal = $('#modal'), modalContent = $('#modal-content');
+  var modalHTML = modalContent.innerHTML, lastFocus = null;
+
+  function bindModalForm(){
+    var f = $('#modal-form'); if (!f) return;
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!checkForm(f)) return;
+      sendLead({
+        source:'modal',
+        subject: f.dataset.subject || 'Заявка с сайта',
+        name: val(f,'name'),
+        phone: val(f,'tel'),
+        note: val(f,'note')
+      });
+      modalContent.innerHTML = doneMarkup;
+    });
+  }
+  function openModal(ctx){
+    ctx = ctx || 'Заявка с сайта';
+    lastFocus = document.activeElement;
+    modalContent.innerHTML = modalHTML;
+    var title = $('#modal-title'), sub = $('#modal-sub'), form = $('#modal-form');
+    if (ctx.indexOf('Хочу такой же') === 0){
+      title.textContent = 'Обсудить похожий проект';
+      sub.textContent = 'Расскажем, во что обойдётся такой же проект в вашем помещении, и запишем на бесплатный замер.';
+    } else if (ctx === 'Заказать обратный звонок'){
+      title.textContent = 'Заказать звонок';
+      sub.textContent = 'Оставьте номер — перезвоним в рабочее время и ответим на вопросы без обязательств.';
+    } else {
+      title.textContent = 'Записаться на замер';
+      var topic = ctx.indexOf(':') > -1 ? ctx.split(':')[1].trim() : '';
+      sub.textContent = (topic ? 'Тема обращения: ' + topic + '. ' : '') +
+        'Инженер приедет в удобное время, снимет размеры и привезёт образцы. Бесплатно и без обязательств.';
+    }
+    form.dataset.subject = ctx;
+    bindModalForm();
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var first = $('#m-name'); if (first) first.focus();
+  }
+  function closeModal(){
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-modal]');
+    if (t){ e.preventDefault(); setNav(false); openModal(t.getAttribute('data-modal')); }
+  });
+  $('#modal-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){
+      if (!modal.hidden) closeModal();
+      else if (burger.getAttribute('aria-expanded') === 'true') setNav(false);
+    }
+  });
+
+  /* ---------- Фильтр проектов ---------- */
+  var works = $$('#works-grid .work'), empty = $('#works-empty');
+  $$('.filters button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.getAttribute('data-filter'), shown = 0;
+      $$('.filters button').forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+      works.forEach(function(w){
+        var match = (f === 'all' || w.getAttribute('data-cat') === f);
+        w.hidden = !match;
+        if (match) shown++;
+      });
+      empty.hidden = shown > 0;
+
+      /* Переключаем набор фото в карусели справа на выбранную тему */
+      $$('.wgal-panel').forEach(function(panel){
+        var cat = panel.getAttribute('data-panel'), active = (cat === f);
+        panel.hidden = !active;
+        var car = wgalCarousels[cat];
+        if (!car) return;
+        if (active) { car.sync(); car.start(); } else { car.stop(); }
+      });
+    });
+  });
+
+  /* ---------- Квиз-калькулятор ---------- */
+  var step = 1, pick = { cat:null, len:null, mat:null };
+  var names = ['Категория мебели','Размер по фронту','Материал фасадов','Ваш результат'];
+  var fill = $('#quiz-fill'), cur = $('#quiz-cur'), qname = $('#quiz-name');
+  var back = $('#quiz-back'), next = $('#quiz-next'), bar = $('.quiz-bar');
+
+  function groupOf(n){ return n === 1 ? 'cat' : n === 2 ? 'len' : 'mat'; }
+
+  function render(){
+    $$('.quiz-step').forEach(function(s){ s.hidden = (+s.getAttribute('data-step') !== step); });
+    fill.style.width = (step * 25) + '%';
+    cur.textContent = step;
+    qname.textContent = names[step - 1];
+    bar.setAttribute('aria-valuenow', step);
+    back.disabled = step === 1;
+    next.hidden = step === 4;
+    if (step < 4) next.disabled = !pick[groupOf(step)];
+  }
+
+  function money(n){ return Math.round(n / 5000) * 5000; }
+
+  function calcPrice(){
+    var mid = pick.cat.base * pick.len.mult * pick.mat.mult;
+    var lo = money(mid * 0.9), hi = money(mid * 1.15);
+    $('#quiz-price').textContent = lo.toLocaleString('ru-RU') + ' – ' + hi.toLocaleString('ru-RU') + ' ₽';
+    $('#quiz-sum').textContent = pick.cat.label + ' · ' + pick.len.label + ' · ' + pick.mat.label +
+      '. Вилка рассчитана по базовым ставкам и не учитывает технику, столешницу из камня и нестандартную фурнитуру.';
+  }
+
+  $$('.opt').forEach(function(opt){
+    opt.addEventListener('click', function(){
+      var g = opt.getAttribute('data-group');
+      $$('.opt[data-group="' + g + '"]').forEach(function(o){ o.setAttribute('aria-pressed', String(o === opt)); });
+      pick[g] = {
+        label: opt.getAttribute('data-label'),
+        base: +opt.getAttribute('data-base'),
+        mult: +opt.getAttribute('data-mult')
+      };
+      next.disabled = false;
+    });
+  });
+
+  next.addEventListener('click', function(){
+    if (step < 4){ step++; if (step === 4) calcPrice(); render(); }
+  });
+  back.addEventListener('click', function(){ if (step > 1){ step--; render(); } });
+  render();
+
+  /* ---------- Формы на странице ---------- */
+  function inlineForm(id, source, extra){
+    var f = $(id); if (!f) return;
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!checkForm(f)) return;
+      var data = { source:source, name:val(f,'name'), phone:val(f,'tel') };
+      if (extra) extra(data);
+      sendLead(data);
+      var box = document.createElement('div');
+      box.innerHTML = doneMarkup;
+      f.replaceWith(box.firstChild);
+    });
+  }
+  inlineForm('#quiz-form', 'quiz', function(d){
+    d.category = pick.cat && pick.cat.label;
+    d.size = pick.len && pick.len.label;
+    d.material = pick.mat && pick.mat.label;
+    d.estimate = $('#quiz-price').textContent;
+  });
+  inlineForm('#offer-form', 'offer', function(d){ d.category = $('#o-cat').value; });
+
+  /* ---------- Карусели (примеры работ + живые фото планировок) ----------
+     Общая логика листания на scroll-snap, вынесена в функцию, чтобы
+     запускать несколько независимых каруселей без дублирования кода. */
+  function initCarousel(opts){
+    var track = $(opts.track); if (!track) return null;
+    var slides = $$(opts.slide, track), dots = $(opts.dots), cur = $(opts.cur);
+    var GAP = opts.gap || 0, timer = null, calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    slides.forEach(function(_, i){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', (opts.dotLabel || 'Слайд ') + (i + 1));
+      b.addEventListener('click', function(){ go(i); restart(); });
+      dots.appendChild(b);
+    });
+
+    function step(){ return track.clientWidth + GAP; }
+    function index(){ return Math.min(slides.length - 1, Math.round(track.scrollLeft / step())); }
+    function go(i){
+      i = (i + slides.length) % slides.length;
+      track.scrollTo({ left: i * step(), behavior: calm ? 'auto' : 'smooth' });
+    }
+    function sync(){
+      var i = index();
+      if (cur) cur.textContent = ('0' + (i + 1)).slice(-2);
+      $$('button', dots).forEach(function(d, n){ d.setAttribute('aria-selected', String(n === i)); });
+    }
+
+    var ticking = false;
+    track.addEventListener('scroll', function(){
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){ sync(); ticking = false; });
+    });
+    window.addEventListener('resize', sync);
+
+    var nextBtn = $(opts.next), prevBtn = $(opts.prev);
+    if (nextBtn) nextBtn.addEventListener('click', function(){ go(index() + 1); restart(); });
+    if (prevBtn) prevBtn.addEventListener('click', function(){ go(index() - 1); restart(); });
+    track.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight'){ e.preventDefault(); go(index() + 1); restart(); }
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); go(index() - 1); restart(); }
+    });
+
+    /* Автопрокрутка: не запускается при prefers-reduced-motion и замирает,
+       пока на карусели курсор, фокус или палец. */
+    function start(){ if (!calm && !timer) timer = setInterval(function(){ go(index() + 1); }, opts.interval || 6500); }
+    function stop(){ clearInterval(timer); timer = null; }
+    function restart(){ stop(); start(); }
+    ['pointerenter','focusin','touchstart'].forEach(function(ev){ track.addEventListener(ev, stop, {passive:true}); });
+    ['pointerleave','focusout','touchend'].forEach(function(ev){ track.addEventListener(ev, start, {passive:true}); });
+    document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+
+    sync();
+    if (opts.autostart !== false) start();
+
+    return { start: start, stop: stop, sync: sync };
+  }
+
+  initCarousel({ track:'#car-track', slide:'.car-slide', dots:'#car-dots', cur:'#car-cur', next:'#car-next', prev:'#car-prev', gap:14, dotLabel:'Пример ' });
+
+  /* Карусель "живых фото" — отдельный набор на каждую категорию (data-filter),
+     переключается вместе с фильтром проектов ниже. Активна только карусель
+     видимой панели: у остальных остановлен автопрокрут, чтобы не мотать
+     скрытые треки вхолостую. */
+  var wgalCarousels = {};
+  ['all','kitchen','wardrobe','dressing','bedroom','kids','bath'].forEach(function(cat){
+    var c = initCarousel({
+      track:'#wgal-track-' + cat, slide:'.wgal-slide', dots:'#wgal-dots-' + cat,
+      cur:'#wgal-cur-' + cat, next:'#wgal-next-' + cat, prev:'#wgal-prev-' + cat,
+      gap:0, dotLabel:'Фото ', interval:7000, autostart: cat === 'all'
+    });
+    if (c) wgalCarousels[cat] = c;
+  });
+
+  /* ---------- Счётчики (значение уже в разметке, анимация — бонус) ---------- */
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var el = en.target, to = +el.getAttribute('data-count'), t0 = null;
+        io.unobserve(el);
+        function tick(ts){
+          if (!t0) t0 = ts;
+          var p = Math.min((ts - t0) / 900, 1);
+          el.firstChild.nodeValue = String(Math.round(to * (1 - Math.pow(1 - p, 3))));
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    $$('[data-count]').forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>
