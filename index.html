@@ -135,9 +135,10 @@ p{margin:0}
 .hdr-in{display:flex;align-items:center;gap:24px;padding-block:14px}
 .logo{display:flex;align-items:center;gap:12px;flex:none}
 .logo-mark{width:clamp(38px,4vw,46px);height:clamp(38px,4vw,46px);flex:none}
+.logo-icon{width:clamp(40px,4.3vw,48px);height:auto;display:block;flex:none}
 .logo-txt{display:grid;gap:2px;line-height:1.02}
-.logo-name{font-family:var(--display);font-size:clamp(1.5rem,2vw,1.8rem);font-weight:600;letter-spacing:.02em;white-space:nowrap}
-.logo-sub{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap}
+.logo-name{font-family:var(--display);font-size:clamp(1.62rem,2.15vw,1.95rem);font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.logo-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap}
 @media(max-width:400px){.logo-sub{letter-spacing:.12em;font-size:.54rem}}
 .nav{display:none;gap:clamp(18px,1.7vw,26px);margin-inline:auto;font-size:.9rem;font-weight:500;flex:none}
 .nav a{color:var(--ink-soft);transition:color .16s ease;white-space:nowrap}
@@ -298,7 +299,7 @@ p{margin:0}
 
 /* Планировки + живые фото: схемы слева, карусель реальных объектов справа */
 .works-layout{display:grid;gap:clamp(32px,4vw,48px)}
-@media(min-width:1160px){.works-layout{grid-template-columns:1fr 340px;align-items:start}}
+@media(min-width:1160px){.works-layout{grid-template-columns:1fr 460px;align-items:start}}
 .works-main{min-width:0}
 @media(min-width:1040px){.works-main .works{grid-template-columns:repeat(2,1fr)}}
 
@@ -445,32 +446,24 @@ p{margin:0}
 .faq .faq-a{padding:0 44px 24px 0;color:var(--ink-soft);font-size:.96rem;max-width:78ch}
 
 /* --- Оффер --- */
-.offer{background:var(--graphite);color:#EDEAE4;border-radius:var(--r-lg);padding:clamp(32px,5vw,64px);display:grid;gap:clamp(26px,3vw,48px);align-items:center;position:relative;overflow:hidden}
-@media(min-width:900px){.offer{grid-template-columns:1.1fr .9fr}}
-.offer h2{color:#F3F0EA}
-.offer p{color:#A9AEB5;max-width:52ch;margin-top:14px}
-.offer-list{display:grid;gap:10px;margin-top:22px}
-.offer-list div{display:flex;gap:11px;align-items:flex-start;font-size:.95rem}
-.offer-list svg{color:var(--brass);flex:none;margin-top:3px}
-.offer-form{background:var(--graphite-soft);border:1px solid var(--graphite-line);border-radius:var(--r);padding:clamp(22px,3vw,30px);display:grid;gap:12px}
-.offer-form .field label{color:#8A8E95}
-.offer-form .field input{background:var(--graphite);border-color:var(--graphite-line);color:#EDEAE4}
-.offer-form .field input::placeholder{color:#6C7178}
-.offer-form .consent{color:#8A8E95}
 
-/* --- Контакты --- */
-.cont{display:grid;gap:clamp(28px,4vw,56px)}
-@media(min-width:940px){.cont{grid-template-columns:1fr 1fr}}
-.cont-rows{display:grid;gap:1px;background:var(--line-soft);border-block:1px solid var(--line-soft);margin-top:26px}
-.cont-rows a,.cont-rows div{background:var(--ivory);padding:18px 0;display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:baseline}
-.cont-rows b{font-family:var(--mono);font-size:.68rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute)}
-.cont-rows span{font-size:1.02rem;font-weight:500}
-.cont-rows a:hover span{color:var(--brass)}
-.msgr{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.msgr a{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);font-size:.9rem;font-weight:600;transition:border-color .16s ease}
-.msgr a:hover{border-color:var(--brass)}
-.map{background:var(--ivory-deep);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(22px,3vw,30px);display:grid;gap:16px;align-content:start}
-.map-note{font-size:.9rem;color:var(--ink-soft)}
+/* --- Контакты / запись на замер (по аналогии с блоком бронирования quintelle) --- */
+.booking-card{
+  background:var(--graphite);color:#EDEAE4;
+  border-radius:var(--r-lg);
+  padding:clamp(28px,5vw,56px);
+  display:grid;gap:clamp(28px,4vw,56px);
+  align-items:center;
+}
+@media(min-width:720px){.booking-card{grid-template-columns:1fr 1fr}}
+.booking-card .eyebrow{color:var(--brass-bright)}
+.booking-card h2{color:#F3F0EA;margin:12px 0 16px}
+.booking-card p.lead{max-width:46ch;color:#B9BEC5;font-size:1.02rem}
+.quick-contacts{display:flex;flex-direction:column;gap:14px;width:100%;max-width:380px}
+@media(min-width:720px){.quick-contacts{justify-self:center}}
+.quick-contacts a{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 18px;border:1px solid var(--graphite-line);border-radius:var(--r);font-size:.98rem;font-weight:600;transition:border-color .16s ease,background-color .16s ease}
+.quick-contacts a:hover{border-color:var(--brass);background:rgba(176,141,79,.12)}
+.quick-contacts .ico{width:20px;height:20px;flex-shrink:0;color:var(--brass-bright)}
 
 /* --- Подвал --- */
 .ftr{background:var(--graphite);color:#9AA0A8;padding-block:clamp(48px,6vw,72px) 32px;font-size:.89rem}
@@ -494,16 +487,6 @@ p{margin:0}
 .mbar-tel{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);color:var(--ink)}
 @media(min-width:1080px){.mbar{display:none}}
 @media(max-width:1079px){body{padding-bottom:80px}}
-
-/* --- Модальное окно --- */
-.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:20px;background:rgba(28,31,35,.62);backdrop-filter:blur(3px)}
-.modal-card{background:var(--ivory);border-radius:var(--r-lg);width:min(520px,100%);max-height:90vh;overflow-y:auto;padding:clamp(26px,4vw,38px);position:relative}
-.modal-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:1px solid var(--line);background:var(--paper);border-radius:var(--r);cursor:pointer;display:grid;place-items:center}
-.modal-card h3{font-family:var(--display);font-size:1.75rem;font-weight:500;margin-bottom:8px}
-.modal-card>p{color:var(--ink-soft);font-size:.94rem;margin-bottom:20px}
-.modal-form{display:grid;gap:13px}
-.done{display:grid;gap:12px;justify-items:center;text-align:center;padding:16px 0}
-.done-ico{width:56px;height:56px;border-radius:99px;display:grid;place-items:center;background:var(--brass-wash);color:var(--walnut)}
 
 /* --- Слоты под фотографии ------------------------------------------
    Схема-иллюстрация остаётся запасным вариантом: если файла фото нет,
@@ -563,12 +546,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
 <header class="hdr">
   <div class="wrap hdr-in">
     <a class="logo" href="#top" aria-label="Мебель Джованни — на главную">
-      <svg class="logo-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="32" height="32" stroke="#1C1F23" stroke-width="1.2"/>
-        <rect x="6" y="6" width="10" height="22" fill="#B08D4F"/>
-        <rect x="19" y="6" width="9" height="10" stroke="#1C1F23" stroke-width="1.2"/>
-        <rect x="19" y="19" width="9" height="9" stroke="#1C1F23" stroke-width="1.2"/>
-      </svg>
+      <img class="logo-icon" src="Content/logo-icon-light.png" width="306" height="300" alt="" aria-hidden="true">
       <span class="logo-txt">
         <span class="logo-name">Мебель Джованни</span>
         <span class="logo-sub">Мебель на заказ</span>
@@ -586,7 +564,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
 
     <div class="hdr-act">
       <a class="hdr-tel" href="tel:+79261857871">8(926)-185-78-71<small>Ежедневно, с 10:00 до 22:00</small></a>
-      <button class="btn btn-primary" data-modal="Заявка на замер">Бесплатный замер</button>
+      <a class="btn btn-primary" href="#contacts">Бесплатный замер</a>
       <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Меню">
         <span></span><span></span><span></span>
       </button>
@@ -605,7 +583,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   <a href="#contacts">Контакты</a>
   <div class="mnav-foot">
     <a class="mnav-tel" href="tel:+79261857871">8(926)-185-78-71</a>
-    <button class="btn btn-primary btn-block" data-modal="Заявка на замер">Записаться на замер</button>
+    <a class="btn btn-primary btn-block" href="#contacts">Записаться на замер</a>
   </div>
 </nav>
 
@@ -619,7 +597,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
       <h1>Мебель, собранная <em>по вашим</em> миллиметрам</h1>
       <p class="hero-lead">Проектируем и производим кухни, шкафы и гардеробные под конкретное помещение — с нишами, скосами и коробами, которые не обойдёт готовая мебель. Собственное производство и контроль на каждом этапе.</p>
       <div class="hero-cta">
-        <button class="btn btn-primary btn-lg" data-modal="Заявка на замер">Записаться на замер</button>
+        <a class="btn btn-primary btn-lg" href="#contacts">Записаться на замер</a>
         <a class="btn btn-ghost btn-lg" href="#calc">Рассчитать стоимость</a>
       </div>
       <p class="hero-note">
@@ -884,9 +862,9 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
           <div class="cat-title"><h3>Кухни</h3><span class="cat-price">от 42 000 ₽ / пог. м</span></div>
           <p>Главное направление компании. Прямые, угловые и П-образные кухни с островом, антресолями до потолка и встроенной техникой. Считаем эргономику рабочего треугольника, а не просто расставляем шкафы: мойка, плита и холодильник встают так, чтобы готовить было удобно именно вам.</p>
           <div class="cat-specs"><span>МДФ-эмаль · шпон · ЛДСП</span><span>Столешница: кварц, HPL, массив</span><span>Blum с доводчиками</span></div>
-          <button class="cat-link" data-modal="Заявка: кухня">Обсудить кухню
+          <a class="cat-link" href="#contacts">Обсудить кухню
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </a>
         </div>
       </article>
 
@@ -917,9 +895,9 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
           <div class="cat-title"><h3>Шкафы</h3><span class="cat-price">от 31 000 ₽ / пог. м</span></div>
           <p>Купе и распашные, встроенные в нишу или корпусные. До потолка — чтобы не собирать пыль на антресолях.</p>
           <div class="cat-specs"><span>Высота до 3 200 мм</span><span>Зеркало, лакобель, шпон</span><span>Доводчики на дверях</span></div>
-          <button class="cat-link" data-modal="Заявка: шкаф">Обсудить шкаф
+          <a class="cat-link" href="#contacts">Обсудить шкаф
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </a>
         </div>
       </article>
 
@@ -959,9 +937,9 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
           <div class="cat-title"><h3>Гардеробные</h3><span class="cat-price">от 46 000 ₽ / пог. м</span></div>
           <p>Считаем систему под ваш гардероб: сколько метров штанги, сколько ящиков под трикотаж, где встанет обувь.</p>
           <div class="cat-specs"><span>Штанги, сетки, брючницы</span><span>Ящики с доводчиком</span><span>Подсветка полок</span></div>
-          <button class="cat-link" data-modal="Заявка: гардеробная">Обсудить гардеробную
+          <a class="cat-link" href="#contacts">Обсудить гардеробную
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </a>
         </div>
       </article>
 
@@ -996,9 +974,9 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
           <div class="cat-title"><h3>Прихожие</h3><span class="cat-price">от 54 000 ₽ / комплект</span></div>
           <p>Самое сложное помещение в квартире: мало места и много вещей. Проектируем так, чтобы верхняя одежда, обувь и мелочи имели своё место.</p>
           <div class="cat-specs"><span>Шкаф + скамья + зеркало</span><span>Открытая и закрытая зоны</span><span>Отсек для сушки обуви</span></div>
-          <button class="cat-link" data-modal="Заявка: прихожая">Обсудить прихожую
+          <a class="cat-link" href="#contacts">Обсудить прихожую
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </a>
         </div>
       </article>
 
@@ -1035,9 +1013,9 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
           <div class="cat-title"><h3>Спальни</h3><span class="cat-price">от 96 000 ₽ / комплект</span></div>
           <p>Кровать с мягким изголовьем, тумбы, комод и шкаф в одном материале и одном оттенке — комплект, а не набор случайной мебели.</p>
           <div class="cat-specs"><span>Изголовье: ткань, экокожа</span><span>Подъёмный механизм</span><span>Кровать по вашему матрасу</span></div>
-          <button class="cat-link" data-modal="Заявка: спальня">Обсудить спальню
+          <a class="cat-link" href="#contacts">Обсудить спальню
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </a>
         </div>
       </article>
 
@@ -1073,9 +1051,9 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
           <div class="cat-title"><h3>Санузлы</h3><span class="cat-price">от 48 000 ₽ / комплект</span></div>
           <p>Влагостойкие материалы и фурнитура с антикоррозийным покрытием. Тумба точно под вашу раковину и разводку труб.</p>
           <div class="cat-specs"><span>Влагостойкий МДФ, эмаль</span><span>Зеркало с подсветкой</span><span>Обход труб и инсталляции</span></div>
-          <button class="cat-link" data-modal="Заявка: санузел">Обсудить санузел
+          <a class="cat-link" href="#contacts">Обсудить санузел
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </a>
         </div>
       </article>
 
@@ -1116,9 +1094,9 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
           <div class="cat-title"><h3>Детские</h3><span class="cat-price">от 88 000 ₽ / комплект</span></div>
           <p>Кровати-чердаки, рабочие места и системы хранения, которые растут вместе с ребёнком. Скруглённые кромки и материалы класса E0.5.</p>
           <div class="cat-specs"><span>Скруглённые углы</span><span>Стол по росту ребёнка</span><span>Безопасные подъёмники</span></div>
-          <button class="cat-link" data-modal="Заявка: детская">Обсудить детскую
+          <a class="cat-link" href="#contacts">Обсудить детскую
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </a>
         </div>
       </article>
     </div>
@@ -1231,7 +1209,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
             <div><b>Столешница</b><span>Кварцевый агломерат</span></div>
             <div><b>Срок</b><span>26 рабочих дней</span></div>
           </div>
-          <button class="work-cta" data-modal="Хочу такой же проект: кухня с островом">Хочу такой же →</button>
+          <a class="work-cta" href="#contacts">Хочу такой же →</a>
         </div>
       </article>
 
@@ -1264,7 +1242,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
             <div><b>Наполнение</b><span>Штанги, 14 ящиков, брючница</span></div>
             <div><b>Срок</b><span>24 рабочих дня</span></div>
           </div>
-          <button class="work-cta" data-modal="Хочу такой же проект: гардеробная">Хочу такой же →</button>
+          <a class="work-cta" href="#contacts">Хочу такой же →</a>
         </div>
       </article>
 
@@ -1299,7 +1277,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
             <div><b>Особенность</b><span>Обход вентиляционного короба</span></div>
             <div><b>Срок</b><span>19 рабочих дней</span></div>
           </div>
-          <button class="work-cta" data-modal="Хочу такой же проект: шкаф-купе">Хочу такой же →</button>
+          <a class="work-cta" href="#contacts">Хочу такой же →</a>
         </div>
       </article>
 
@@ -1332,7 +1310,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
             <div><b>Материал</b><span>ЛДСП E0.5, кромка 2 мм</span></div>
             <div><b>Срок</b><span>22 рабочих дня</span></div>
           </div>
-          <button class="work-cta" data-modal="Хочу такой же проект: детская">Хочу такой же →</button>
+          <a class="work-cta" href="#contacts">Хочу такой же →</a>
         </div>
       </article>
 
@@ -1366,7 +1344,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
             <div><b>Особенность</b><span>Подъёмный механизм, бельевой ящик</span></div>
             <div><b>Срок</b><span>28 рабочих дней</span></div>
           </div>
-          <button class="work-cta" data-modal="Хочу такой же проект: спальня">Хочу такой же →</button>
+          <a class="work-cta" href="#contacts">Хочу такой же →</a>
         </div>
       </article>
 
@@ -1397,7 +1375,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
             <div><b>Особенность</b><span>Обход инсталляции и стояка</span></div>
             <div><b>Срок</b><span>17 рабочих дней</span></div>
           </div>
-          <button class="work-cta" data-modal="Хочу такой же проект: санузел">Хочу такой же →</button>
+          <a class="work-cta" href="#contacts">Хочу такой же →</a>
         </div>
       </article>
     </div>
@@ -1875,23 +1853,10 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
             <p class="quiz-price"><small>Ориентировочная стоимость</small><span id="quiz-price">—</span></p>
             <p class="quiz-sum" id="quiz-sum"></p>
           </div>
-          <form class="quiz-form" id="quiz-form" novalidate>
-            <div class="field">
-              <label for="q-name">Как к вам обращаться</label>
-              <input id="q-name" name="name" type="text" autocomplete="name" placeholder="Имя">
-            </div>
-            <div class="field">
-              <label for="q-tel">Телефон для связи</label>
-              <input id="q-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
-              <span class="err" id="q-tel-err"></span>
-            </div>
-            <label class="consent form-span">
-              <input type="checkbox" name="consent" required>
-              <span>Согласен на обработку персональных данных в соответствии с <a href="#privacy">политикой конфиденциальности</a>.</span>
-            </label>
-            <button type="submit" class="btn btn-primary form-span">Получить точный расчёт после замера</button>
-            <p class="form-span" style="font-size:.8rem;color:var(--ink-mute);margin:0">Перезвоним в рабочее время, обычно в течение 20 минут. Без рассылок и повторных звонков без вашего запроса.</p>
-          </form>
+          <div class="quiz-form">
+            <a href="#contacts" class="btn btn-primary form-span">Получить точный расчёт после замера</a>
+            <p class="form-span" style="font-size:.8rem;color:var(--ink-mute);margin:0">Свяжемся любым удобным способом — WhatsApp, Telegram или по телефону — и согласуем время замера.</p>
+          </div>
         </div>
       </div>
 
@@ -2041,99 +2006,33 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   </div>
 </section>
 
-<!-- ================= СПЕЦПРЕДЛОЖЕНИЕ ================= -->
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="offer" id="offer">
-      <div>
-        <p class="eyebrow">Предложение месяца</p>
-        <h2>Замер, проект и смета — бесплатно</h2>
-        <p>Инженер приедет, снимет размеры и привезёт образцы материалов. Вы получите визуализацию и смету с ценой по каждой позиции — и решите спокойно, без давления менеджера.</p>
-        <div class="offer-list">
-          <div><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg><span>Выезд инженера в Москве и МО — бесплатно</span></div>
-          <div><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg><span>3D-визуализация и планировка наполнения</span></div>
-          <div><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg><span>Смета с расшифровкой по каждой позиции</span></div>
-          <div><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10.5 8 14.5l8-9"/></svg><span>Проект остаётся у вас, даже если вы не заключите договор</span></div>
-        </div>
-      </div>
-
-      <form class="offer-form" id="offer-form" novalidate>
-        <div class="field">
-          <label for="o-name">Имя</label>
-          <input id="o-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться">
-        </div>
-        <div class="field">
-          <label for="o-tel">Телефон</label>
-          <input id="o-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
-          <span class="err" id="o-tel-err"></span>
-        </div>
-        <div class="field">
-          <label for="o-cat">Что вас интересует</label>
-          <select id="o-cat" name="cat" style="padding:14px 15px;background:var(--graphite);border:1px solid var(--graphite-line);border-radius:var(--r);color:#EDEAE4">
-            <option>Кухня</option><option>Шкаф</option><option>Гардеробная</option><option>Прихожая</option>
-            <option>Спальня</option><option>Санузел</option><option>Детская</option><option>Меблировка квартиры целиком</option>
-          </select>
-        </div>
-        <label class="consent">
-          <input type="checkbox" name="consent" required>
-          <span>Согласен на обработку персональных данных в соответствии с <a href="#privacy">политикой конфиденциальности</a>.</span>
-        </label>
-        <button type="submit" class="btn btn-primary btn-block">Записаться на бесплатный замер</button>
-      </form>
-    </div>
-  </div>
-</section>
-
 <!-- ================= КОНТАКТЫ ================= -->
-<section class="section section-deep" id="contacts">
-  <div class="wrap cont">
-    <div>
-      <p class="eyebrow">Контакты</p>
-      <h2>Свяжитесь удобным способом</h2>
-      <p class="lead" style="margin-top:16px;color:var(--ink-soft)">Работаем в Москве и Московской области. Замер, показ образцов и презентацию проекта проводим у вас дома — так вы видите материалы при своём освещении и в своём интерьере.</p>
-
-      <div class="cont-rows">
-        <a href="tel:+79261857871"><b>Телефон</b><span>8(926)-185-78-71</span></a>
-        <a href="mailto:GiovannyFurniture@protonmail.com"><b>Почта</b><span>GiovannyFurniture@protonmail.com</span></a>
-        <div><b>Время работы</b><span>Ежедневно, с 10:00 до 22:00</span></div>
-        <div><b>География</b><span>Москва и Московская область</span></div>
+<section class="section" id="contacts">
+  <div class="wrap">
+    <div class="booking-card">
+      <div>
+        <p class="eyebrow">Контакты</p>
+        <h2>Запишитесь на замер</h2>
+        <p class="lead">Работаем в Москве и Московской области. Замер, показ образцов и презентацию проекта проводим у вас дома — так вы видите материалы при своём освещении и в своём интерьере.</p>
       </div>
-
-      <div class="msgr">
-        <!-- ЗАМЕНИТЬ: ссылки на мессенджеры -->
+      <div class="quick-contacts">
         <a href="https://wa.me/79261857871" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
-          <svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="#B08D4F" stroke-width="1.5" aria-hidden="true"><path d="M3 17l1.2-3.6A7 7 0 1 1 6.8 16z"/></svg>
-          WhatsApp
+          <svg class="ico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l1.2-3.6A7 7 0 1 1 6.8 16z"/></svg>
+          WhatsApp: +7 (926) 185-78-71
         </a>
         <a href="https://t.me/+79261857871" target="_blank" rel="noopener" aria-label="Написать в Telegram">
-          <svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="#B08D4F" stroke-width="1.5" aria-hidden="true"><path d="M17 4 2.5 9.6l4.2 1.4L15 6l-6.4 6.2.3 4.3 2.4-3"/></svg>
-          Telegram
+          <svg class="ico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 4 2.5 9.6l4.2 1.4L15 6l-6.4 6.2.3 4.3 2.4-3"/></svg>
+          Telegram: +7 (926) 185-78-71
         </a>
-        <button class="btn btn-ghost" style="padding:11px 18px;font-size:.9rem" data-modal="Заказать обратный звонок">Заказать звонок</button>
+        <a href="tel:+79261857871" aria-label="Позвонить">
+          <svg class="ico" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 15.5v3a1.5 1.5 0 0 1-1.7 1.5A18 18 0 0 1 2 3.7 1.5 1.5 0 0 1 3.5 2h3A1.5 1.5 0 0 1 8 3.3c.1 1 .3 1.9.6 2.8a1.5 1.5 0 0 1-.3 1.6L7 9a15 15 0 0 0 6 6l1.3-1.3a1.5 1.5 0 0 1 1.6-.3c.9.3 1.8.5 2.8.6a1.5 1.5 0 0 1 1.3 1.5z"/></svg>
+          +7 (926) 185-78-71
+        </a>
+        <a href="mailto:GiovannyFurniture@protonmail.com" aria-label="Написать на почту">
+          <svg class="ico" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="4.5" width="17" height="13" rx="2"/><path d="M3 6l8 6 8-6"/></svg>
+          GiovannyFurniture@protonmail.com
+        </a>
       </div>
-    </div>
-
-    <div class="map">
-      <p class="eyebrow" style="margin:0">Зона выезда</p>
-      <svg viewBox="0 0 420 300" role="img" aria-label="Схема зоны выезда: Москва в пределах МКАД и Московская область" style="width:100%;height:auto">
-        <rect width="420" height="300" fill="#E4DCCD"/>
-        <g stroke="#CFC4B0" stroke-width="1">
-          <line x1="0" y1="75" x2="420" y2="75"/><line x1="0" y1="150" x2="420" y2="150"/><line x1="0" y1="225" x2="420" y2="225"/>
-          <line x1="105" y1="0" x2="105" y2="300"/><line x1="210" y1="0" x2="210" y2="300"/><line x1="315" y1="0" x2="315" y2="300"/>
-        </g>
-        <circle cx="210" cy="150" r="120" fill="#D9CFBB" stroke="#B9AC93" stroke-width="1.5" stroke-dasharray="6 5"/>
-        <circle cx="210" cy="150" r="66" fill="#C9BCA1" stroke="#8A6A45" stroke-width="2"/>
-        <g stroke="#B08D4F" stroke-width="2">
-          <line x1="210" y1="84" x2="210" y2="30"/><line x1="210" y1="216" x2="210" y2="272"/>
-          <line x1="144" y1="150" x2="86" y2="150"/><line x1="276" y1="150" x2="336" y2="150"/>
-          <line x1="257" y1="103" x2="298" y2="62"/><line x1="163" y1="197" x2="122" y2="238"/>
-        </g>
-        <circle cx="210" cy="150" r="7" fill="#1C1F23"/>
-        <text x="210" y="140" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#2A2E34">МОСКВА</text>
-        <text x="210" y="252" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6E644F">МОСКОВСКАЯ ОБЛАСТЬ</text>
-      </svg>
-      <p class="map-note">В пределах МКАД доставка входит в стоимость заказа. За МКАД — по километражу, сумма фиксируется в смете до договора.
-      <!-- ЗАМЕНИТЬ: интерактивная карта Яндекс.Карт по ТЗ, п. 5.2 --></p>
     </div>
   </div>
 </section>
@@ -2172,9 +2071,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
       </div>
     </div>
     <div class="ftr-bot">
-      <!-- ЗАМЕНИТЬ: юридическое наименование, ИНН и ОГРН -->
-      <p>© 2026 «Мебель Джованни». ООО «Наименование», ИНН 0000000000, ОГРН 0000000000000. Не является публичной офертой: цены указаны как ориентир и уточняются после замера.</p>
-      <p><a href="#privacy" id="privacy">Политика конфиденциальности</a></p>
+      <p>© 2026 «Мебель Джованни». Индивидуальный предприниматель Люшуков Иван Александрович, ИНН 773212955869. Не является публичной офертой: цены указаны как ориентир и уточняются после замера.</p>
     </div>
   </div>
 </footer>
@@ -2184,40 +2081,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   <a class="mbar-tel" href="tel:+79261857871" aria-label="Позвонить">
     <svg width="21" height="21" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 15.5v3a1.5 1.5 0 0 1-1.7 1.5A18 18 0 0 1 2 3.7 1.5 1.5 0 0 1 3.5 2h3A1.5 1.5 0 0 1 8 3.3c.1 1 .3 1.9.6 2.8a1.5 1.5 0 0 1-.3 1.6L7 9a15 15 0 0 0 6 6l1.3-1.3a1.5 1.5 0 0 1 1.6-.3c.9.3 1.8.5 2.8.6a1.5 1.5 0 0 1 1.3 1.5z"/></svg>
   </a>
-  <button class="btn btn-primary" data-modal="Заявка на замер">Бесплатный замер</button>
-</div>
-
-<!-- ================= МОДАЛЬНОЕ ОКНО ================= -->
-<div class="modal" id="modal" hidden>
-  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="modal-close" id="modal-close" aria-label="Закрыть">
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg>
-    </button>
-    <div id="modal-content">
-      <h3 id="modal-title">Записаться на замер</h3>
-      <p id="modal-sub">Инженер приедет в удобное время, снимет размеры и привезёт образцы. Бесплатно и без обязательств.</p>
-      <form class="modal-form" id="modal-form" novalidate>
-        <div class="field">
-          <label for="m-name">Имя</label>
-          <input id="m-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться">
-        </div>
-        <div class="field">
-          <label for="m-tel">Телефон</label>
-          <input id="m-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
-          <span class="err" id="m-tel-err"></span>
-        </div>
-        <div class="field">
-          <label for="m-note">Комментарий <span style="text-transform:none;letter-spacing:0">— необязательно</span></label>
-          <textarea id="m-note" name="note" rows="2" placeholder="Помещение, сроки, пожелания"></textarea>
-        </div>
-        <label class="consent">
-          <input type="checkbox" name="consent" required>
-          <span>Согласен на обработку персональных данных в соответствии с <a href="#privacy">политикой конфиденциальности</a>.</span>
-        </label>
-        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
-      </form>
-    </div>
-  </div>
+  <a class="btn btn-primary" href="#contacts">Бесплатный замер</a>
 </div>
 
 <script>
@@ -2225,50 +2089,6 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   "use strict";
   var $  = function(s,c){ return (c||document).querySelector(s); };
   var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
-
-  /* =========================================================
-     ТОЧКА ИНТЕГРАЦИИ С CRM / ПОЧТОЙ
-     Любая заявка (модальное окно, квиз-калькулятор, спецпредложение)
-     открывает WhatsApp менеджера с готовым текстом заявки на номер
-     8(926)-185-78-71. Разработчику: при подключении бэкенда можно
-     дополнительно отправлять payload на сервер и передавать цель
-     в Яндекс.Метрику / Google Analytics. См. ТЗ, п. 5.1–5.2.
-     ========================================================= */
-  var LEAD_WHATSAPP_PHONE = '79261857871';
-
-  var LEAD_SOURCE_LABELS = { modal:'Заявка с сайта', quiz:'Расчёт стоимости (квиз-калькулятор)', offer:'Спецпредложение' };
-  var LEAD_FIELD_LABELS = {
-    subject:'Тема', name:'Имя', phone:'Телефон', category:'Категория',
-    size:'Размер', material:'Материал', estimate:'Расчёт', note:'Комментарий'
-  };
-  var LEAD_FIELD_ORDER = ['subject','name','phone','category','size','material','estimate','note'];
-
-  function leadToWhatsAppText(payload){
-    var lines = ['Новая заявка с сайта «Мебель Джованни»'];
-    if (!payload.subject && LEAD_SOURCE_LABELS[payload.source]){
-      lines.push(LEAD_FIELD_LABELS.subject + ': ' + LEAD_SOURCE_LABELS[payload.source]);
-    }
-    LEAD_FIELD_ORDER.forEach(function(field){
-      var value = payload[field];
-      if (value) lines.push(LEAD_FIELD_LABELS[field] + ': ' + value);
-    });
-    return lines.join('\n');
-  }
-
-  function sendLead(payload){
-    // TODO: fetch('/api/lead', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)})
-    // TODO: typeof ym === 'function' && ym(XXXXXX, 'reachGoal', 'lead');
-    if (window.console) console.log('[Заявка]', payload);
-    try {
-      var text = leadToWhatsAppText(payload);
-      var url = 'https://wa.me/' + LEAD_WHATSAPP_PHONE + '?text=' + encodeURIComponent(text);
-      window.open(url, '_blank', 'noopener');
-    } catch (e) {
-      if (window.console) console.error('[Заявка → WhatsApp]', e);
-    }
-    return Promise.resolve();
-  }
-
 
   /* ---------- Фотографии поверх схем ----------
      Файла нет (или он не загрузился) — убираем <img>, остаётся чертёж. */
@@ -2284,65 +2104,6 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
     else { img.addEventListener('load', ok); img.addEventListener('error', fallback); }
   });
 
-  /* ---------- Телефон: маска и проверка ---------- */
-  function digits(v){ return (v||'').replace(/\D/g,''); }
-  function maskPhone(v){
-    var d = digits(v);
-    if (!d) return '';
-    if (d[0] === '8') d = '7' + d.slice(1);
-    if (d[0] !== '7') d = '7' + d;
-    d = d.slice(0,11);
-    var out = '+7';
-    if (d.length > 1) out += ' (' + d.slice(1,4);
-    if (d.length >= 4) out += ') ' + d.slice(4,7);
-    if (d.length >= 8) out += '-' + d.slice(7,9);
-    if (d.length >= 10) out += '-' + d.slice(9,11);
-    return out;
-  }
-  function validPhone(v){ return digits(v).length === 11; }
-
-  $$('input[type="tel"]').forEach(function(inp){
-    inp.addEventListener('input', function(){
-      var pos = inp.selectionStart === inp.value.length;
-      inp.value = maskPhone(inp.value);
-      if (pos) inp.setSelectionRange(inp.value.length, inp.value.length);
-      inp.setAttribute('aria-invalid','false');
-      var err = $('#' + inp.id + '-err'); if (err) err.textContent = '';
-    });
-  });
-
-  function checkForm(form){
-    var ok = true;
-    var tel = form.querySelector('input[type="tel"]');
-    if (tel){
-      var err = $('#' + tel.id + '-err');
-      if (!validPhone(tel.value)){
-        tel.setAttribute('aria-invalid','true');
-        if (err) err.textContent = 'Введите номер полностью: +7 и 10 цифр.';
-        ok = false;
-        tel.focus();
-      }
-    }
-    var consent = form.querySelector('input[name="consent"]');
-    if (ok && consent && !consent.checked){
-      consent.focus();
-      if (consent.reportValidity) consent.reportValidity();
-      ok = false;
-    }
-    return ok;
-  }
-  /* form.name — это атрибут формы, а не поле с name="name", поэтому берём поля явно */
-  function val(form, field){
-    var el = form.querySelector('[name="' + field + '"]');
-    return el ? el.value : '';
-  }
-
-  var doneMarkup = '<div class="done">' +
-    '<div class="done-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12.5 10 17.5 19 7"/></svg></div>' +
-    '<h3 style="font-family:var(--display);font-size:1.5rem;font-weight:500">Заявка принята</h3>' +
-    '<p style="color:var(--ink-soft);font-size:.94rem;max-width:38ch">Менеджер перезвонит в рабочее время, обычно в течение 20 минут, и согласует удобное время замера.</p>' +
-    '</div>';
-
   /* ---------- Мобильное меню ---------- */
   var burger = $('#burger'), mnav = $('#mnav');
   function setNav(open){
@@ -2355,64 +2116,8 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   });
   $$('#mnav a').forEach(function(a){ a.addEventListener('click', function(){ setNav(false); }); });
 
-  /* ---------- Модальное окно ---------- */
-  var modal = $('#modal'), modalContent = $('#modal-content');
-  var modalHTML = modalContent.innerHTML, lastFocus = null;
-
-  function bindModalForm(){
-    var f = $('#modal-form'); if (!f) return;
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      if (!checkForm(f)) return;
-      sendLead({
-        source:'modal',
-        subject: f.dataset.subject || 'Заявка с сайта',
-        name: val(f,'name'),
-        phone: val(f,'tel'),
-        note: val(f,'note')
-      });
-      modalContent.innerHTML = doneMarkup;
-    });
-  }
-  function openModal(ctx){
-    ctx = ctx || 'Заявка с сайта';
-    lastFocus = document.activeElement;
-    modalContent.innerHTML = modalHTML;
-    var title = $('#modal-title'), sub = $('#modal-sub'), form = $('#modal-form');
-    if (ctx.indexOf('Хочу такой же') === 0){
-      title.textContent = 'Обсудить похожий проект';
-      sub.textContent = 'Расскажем, во что обойдётся такой же проект в вашем помещении, и запишем на бесплатный замер.';
-    } else if (ctx === 'Заказать обратный звонок'){
-      title.textContent = 'Заказать звонок';
-      sub.textContent = 'Оставьте номер — перезвоним в рабочее время и ответим на вопросы без обязательств.';
-    } else {
-      title.textContent = 'Записаться на замер';
-      var topic = ctx.indexOf(':') > -1 ? ctx.split(':')[1].trim() : '';
-      sub.textContent = (topic ? 'Тема обращения: ' + topic + '. ' : '') +
-        'Инженер приедет в удобное время, снимет размеры и привезёт образцы. Бесплатно и без обязательств.';
-    }
-    form.dataset.subject = ctx;
-    bindModalForm();
-    modal.hidden = false;
-    document.body.style.overflow = 'hidden';
-    var first = $('#m-name'); if (first) first.focus();
-  }
-  function closeModal(){
-    modal.hidden = true;
-    document.body.style.overflow = '';
-    if (lastFocus) lastFocus.focus();
-  }
-  document.addEventListener('click', function(e){
-    var t = e.target.closest('[data-modal]');
-    if (t){ e.preventDefault(); setNav(false); openModal(t.getAttribute('data-modal')); }
-  });
-  $('#modal-close').addEventListener('click', closeModal);
-  modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape'){
-      if (!modal.hidden) closeModal();
-      else if (burger.getAttribute('aria-expanded') === 'true') setNav(false);
-    }
+    if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') setNav(false);
   });
 
   /* ---------- Фильтр проектов ---------- */
@@ -2486,28 +2191,6 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   });
   back.addEventListener('click', function(){ if (step > 1){ step--; render(); } });
   render();
-
-  /* ---------- Формы на странице ---------- */
-  function inlineForm(id, source, extra){
-    var f = $(id); if (!f) return;
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      if (!checkForm(f)) return;
-      var data = { source:source, name:val(f,'name'), phone:val(f,'tel') };
-      if (extra) extra(data);
-      sendLead(data);
-      var box = document.createElement('div');
-      box.innerHTML = doneMarkup;
-      f.replaceWith(box.firstChild);
-    });
-  }
-  inlineForm('#quiz-form', 'quiz', function(d){
-    d.category = pick.cat && pick.cat.label;
-    d.size = pick.len && pick.len.label;
-    d.material = pick.mat && pick.mat.label;
-    d.estimate = $('#quiz-price').textContent;
-  });
-  inlineForm('#offer-form', 'offer', function(d){ d.category = $('#o-cat').value; });
 
   /* ---------- Карусели (примеры работ + живые фото планировок) ----------
      Общая логика листания на scroll-snap, вынесена в функцию, чтобы
